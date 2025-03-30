@@ -1,5 +1,5 @@
-#ifndef __GAME_TRIANGULE_H__
-#define __GAME_TRIANGULE_H__
+#ifndef __GAME_TRIANGLE_H__
+#define __GAME_TRIANGLE_H__
 
 #include <stdlib.h>
 #include "esUtil.h"
@@ -35,4 +35,4 @@ void Draw(ESContext *esContext);
 int StartGameTriangle(int argc, char *argv[]);
 
 
-#endif //  __GAME_TRIANGULE_H__
+#endif //  __GAME_TRIANGLE_H__

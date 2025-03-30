@@ -182,15 +182,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\triangle.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\triangle.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\triangle_shaders.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\triangule.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\triangule.h"
 				>
 			</File>
 		</Filter>

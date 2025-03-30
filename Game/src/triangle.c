@@ -1,5 +1,5 @@
 #include "esUtil.h"
-#include "triangule.h"
+#include "triangle.h"
 #include "triangle_shaders.h"
 #include "config.h"
 
