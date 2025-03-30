@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "triangle.h"
 #include "simple_vertex_shader.h"
+#include "textured_square.h"
 
 int main(int argc, char * argv[]) {
 
-	char * programToRun = "GameSimpleVertexShader";
+	char * programToRun = START_GAME_TEXTURED_SQUARE;
 
 	if (argv[1] != NULL) {
 		programToRun = argv[1];
@@ -19,6 +20,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, START_GAME_SIMPLE_VERTEX_SHADER) == 0)
 	{
 		StartSimpleVertexShader(argc, argv);
+	}
+	else if (strcmp(programToRun, START_GAME_TEXTURED_SQUARE) == 0)
+	{
+		StartTexturedSquare(argc, argv);
 	}
 	else
 	{

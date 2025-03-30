@@ -197,6 +197,18 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\textured_square.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\textured_square_shaders.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\textured_squre.c"
+				>
+			</File>
+			<File
 				RelativePath=".\src\triangle.c"
 				>
 			</File>
