@@ -1,5 +1,6 @@
 #include "esUtil.h"
 #include "triangule.h"
+#include "triangle_shaders.h"
 #include "config.h"
 
 ///
@@ -56,19 +57,6 @@ GLuint LoadShader(GLenum type, const char *shaderSrc)
 int Init(ESContext *esContext)
 {
 	UserData *userData = esContext->userData;
-	GLbyte vShaderStr[] =  
-		"attribute vec4 vPosition;    \n"
-		"void main()                  \n"
-		"{                            \n"
-		"   gl_Position = vPosition;  \n"
-		"}                            \n";
-
-	GLbyte fShaderStr[] =  
-		"precision mediump float;\n"\
-		"void main()                                  \n"
-		"{                                            \n"
-		"  gl_FragColor = vec4 ( 1.0, 0.0, 0.0, 1.0 );\n"
-		"}                                            \n";
 
 	GLuint vertexShader;
 	GLuint fragmentShader;
@@ -76,8 +64,8 @@ int Init(ESContext *esContext)
 	GLint linked;
 
 	// Load the vertex/fragment shaders
-	vertexShader = LoadShader(GL_VERTEX_SHADER, (const char *)vShaderStr);
-	fragmentShader = LoadShader(GL_FRAGMENT_SHADER, (const char *)fShaderStr);
+	vertexShader = LoadShader(GL_VERTEX_SHADER, getTriangleVertexShader());
+	fragmentShader = LoadShader(GL_FRAGMENT_SHADER, getTriangleFragmentShader());
 
 	// Create the program object
 	programObject = glCreateProgram();
