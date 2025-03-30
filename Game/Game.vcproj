@@ -175,6 +175,10 @@
 				RelativePath=".\game.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\triangule.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"

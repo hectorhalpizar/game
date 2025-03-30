@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "triangule.h"
 
 int main(int argc, char * argv[]) {
 
@@ -9,5 +10,11 @@ int main(int argc, char * argv[]) {
 	}
 
 	printf("Hello %s.\n", greeting);
+
+	UserData userData;
+	userData.programObject = 1;
+
+	printf("programObject %d.\n", userData.programObject);
+
 	return 0;
 }
