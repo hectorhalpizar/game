@@ -33,7 +33,7 @@ GLuint LoadShader(GLenum type, const char *shaderSrc)
 
 		if (infoLen > 1)
 		{
-			char* infoLog = (char*)malloc (sizeof(char) * infoLen );
+			char* infoLog = malloc (sizeof(char) * infoLen );
 
 			glGetShaderInfoLog ( shader, infoLen, NULL, infoLog );
 			esLogMessage ( "Error compiling shader:\n%s\n", infoLog );            
@@ -54,7 +54,7 @@ GLuint LoadShader(GLenum type, const char *shaderSrc)
 //
 int Init(ESContext *esContext)
 {
-	UserData *userData = (UserData*)esContext->userData;
+	UserData *userData = esContext->userData;
 	GLbyte vShaderStr[] =  
 		"attribute vec4 vPosition;    \n"
 		"void main()                  \n"
@@ -104,7 +104,7 @@ int Init(ESContext *esContext)
 
 		if(infoLen > 1)
 		{
-			char* infoLog = (char*)malloc(sizeof(char) * infoLen);
+			char* infoLog = malloc(sizeof(char) * infoLen);
 
 			glGetProgramInfoLog(programObject, infoLen, NULL, infoLog);
 			esLogMessage("Error linking program:\n%s\n", infoLog);            
@@ -128,7 +128,7 @@ int Init(ESContext *esContext)
 //
 void Draw(ESContext *esContext)
 {
-	UserData *userData = (UserData*)esContext->userData;
+	UserData *userData = esContext->userData;
 	GLfloat vVertices[] = {  0.0f,  0.5f, 0.0f, 
 		-0.5f, -0.5f, 0.0f,
 		0.5f, -0.5f, 0.0f };
