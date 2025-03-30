@@ -4,7 +4,7 @@
 
 int main(int argc, char * argv[]) {
 
-	char * programToRun = "";
+	char * programToRun = "GameSimpleVertexShader";
 
 	if (argv[1] != NULL) {
 		programToRun = argv[1];
