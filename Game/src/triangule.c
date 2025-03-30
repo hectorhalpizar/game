@@ -1,5 +1,6 @@
 #include "esUtil.h"
 #include "triangule.h"
+#include "config.h"
 
 ///
 // Create a shader object, load the shader source, and
@@ -162,11 +163,11 @@ int GameTriangle(int argc, char *argv[])
 	esCreateWindow(&esContext, "Hello Triangle", 320, 240, ES_WINDOW_RGB);
 
 	if(!Init(&esContext))
-		return 0;
+		return GAME_ERROR_INIT_FAILED;
 
 	esRegisterDrawFunc(&esContext, Draw);
 
 	esMainLoop(&esContext);
 
-	return 0;
+	return GAME_ENDED_SUCCESS;
 }

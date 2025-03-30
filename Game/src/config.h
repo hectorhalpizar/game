@@ -1,0 +1,7 @@
+#ifndef __GAME_CONFIG_H__
+#define __GAME_CONFIG_H__
+
+#define GAME_ENDED_SUCCESS 0
+#define GAME_ERROR_INIT_FAILED -1
+
+#endif // __GAME_CONFIG_H__
