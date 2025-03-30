@@ -27,23 +27,10 @@ int Init(ESContext *esContext);
 //
 void Draw(ESContext *esContext);
 
-int gameTriangule(int argc, char *argv[])
-{
-	ESContext esContext;
-	UserData  userData;
-
-	esInitContext(&esContext);
-	esContext.userData = &userData;
-
-	esCreateWindow(&esContext, "Hello Triangle", 320, 240, ES_WINDOW_RGB);
-
-	if(!Init(&esContext))
-		return 0;
-
-	esRegisterDrawFunc(&esContext, Draw);
-
-	esMainLoop(&esContext);
-}
+///
+// Starts game triangule logic
+//
+int GameTriangle(int argc, char *argv[]);
 
 
 #endif //  __GAME_TRIANGULE_H__

@@ -3,20 +3,22 @@
 
 int main(int argc, char * argv[]) {
 
-	char * greeting = "world";
+	char * programToRun = "";
 
 	if (argv[1] != NULL) {
-		greeting = argv[1];
+		programToRun = argv[1];
 	}
 
-	printf("Hello %s.\n", greeting);
+	printf("Running program %s.\n", programToRun);
 
-	UserData userData;
-	userData.programObject = 1;
-
-	printf("programObject %d.\n", userData.programObject);
-
-	gameTriangule(argc, argv);
+	if (strcmp(programToRun, "GameTriangle") == 0)
+	{
+		GameTriangle(argc, argv);
+	}
+	else
+	{
+		printf("Program %s not found.\n", programToRun);
+	}
 
 	return 0;
 }
