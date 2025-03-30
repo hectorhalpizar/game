@@ -152,7 +152,7 @@ void Draw(ESContext *esContext)
 	eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface);
 }
 
-int GameTriangle(int argc, char *argv[])
+int StartGameTriangle(int argc, char *argv[])
 {
 	ESContext esContext;
 	UserData  userData;

@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include "esUtil.h"
 
+#define START_GAME_TRIANGLE "GameTriangle"
+
 typedef struct
 {
 	// Handle to a program object
@@ -30,7 +32,7 @@ void Draw(ESContext *esContext);
 ///
 // Starts game triangule logic
 //
-int GameTriangle(int argc, char *argv[]);
+int StartGameTriangle(int argc, char *argv[]);
 
 
 #endif //  __GAME_TRIANGULE_H__

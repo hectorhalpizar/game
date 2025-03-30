@@ -11,9 +11,9 @@ int main(int argc, char * argv[]) {
 
 	printf("Running program %s.\n", programToRun);
 
-	if (strcmp(programToRun, "GameTriangle") == 0)
+	if (strcmp(programToRun, START_GAME_TRIANGLE) == 0)
 	{
-		GameTriangle(argc, argv);
+		StartGameTriangle(argc, argv);
 	}
 	else
 	{
