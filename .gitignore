@@ -401,3 +401,4 @@ FodyWeavers.xsd
 
 # Add Project Libraries for now here
 Common/Lib
+Game/pcviewer_es2.cfg
