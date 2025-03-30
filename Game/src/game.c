@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "triangle.h"
+#include "simple_vertex_shader.h"
 
 int main(int argc, char * argv[]) {
 
@@ -14,6 +15,10 @@ int main(int argc, char * argv[]) {
 	if (strcmp(programToRun, START_GAME_TRIANGLE) == 0)
 	{
 		StartGameTriangle(argc, argv);
+	}
+	else if (strcmp(programToRun, START_GAME_SIMPLE_VERTEX_SHADER) == 0)
+	{
+		StartSimpleVertexShader(argc, argv);
 	}
 	else
 	{

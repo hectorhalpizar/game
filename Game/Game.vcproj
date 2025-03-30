@@ -182,6 +182,18 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\simple_vertex_shader.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\simple_vertex_shader.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\simple_vertex_shader_shaders.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\triangle.c"
 				>
 			</File>
