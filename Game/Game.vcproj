@@ -176,6 +176,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\triangule.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\triangule.h"
 				>
 			</File>

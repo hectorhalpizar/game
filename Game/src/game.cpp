@@ -16,5 +16,7 @@ int main(int argc, char * argv[]) {
 
 	printf("programObject %d.\n", userData.programObject);
 
+	gameTriangule(argc, argv);
+
 	return 0;
 }
