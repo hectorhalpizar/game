@@ -206,6 +206,14 @@
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath=".\Game_Debug.rc"
+			>
+		</File>
+		<File
+			RelativePath=".\resource.h"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
