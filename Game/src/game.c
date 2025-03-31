@@ -10,7 +10,8 @@
 int main(int argc, char * argv[]) {
 
 	char * programToRun = START_GAME_TEXTURE_WRAP;
-	int demoResult = GAME_ERROR_NO_DEMO_SELECTED;
+	int demoResult = GAME_ERROR_DEMO_NOT_FOUND;
+	int (*runGameDemo) (int, char **) = NULL;
 
 	if (argv[1] != NULL) {
 		programToRun = argv[1];
@@ -18,34 +19,40 @@ int main(int argc, char * argv[]) {
 
 	printf("Running program %s.\n", programToRun);
 
+	// Assigning runGameDemo
 	if (strcmp(programToRun, START_GAME_TRIANGLE) == 0)
 	{
-		demoResult = StartGameTriangle(argc, argv);
+		runGameDemo = StartGameTriangle;
 	}
 	else if (strcmp(programToRun, START_GAME_SIMPLE_VERTEX_SHADER) == 0)
 	{
-		demoResult = StartSimpleVertexShader(argc, argv);
+		runGameDemo = StartSimpleVertexShader;
 	}
 	else if (strcmp(programToRun, START_GAME_TEXTURED_SQUARE) == 0)
 	{
-		demoResult = StartTexturedSquare(argc, argv);
+		runGameDemo = StartTexturedSquare;
 	}
 	else if (strcmp(programToRun, START_GAME_MIP_MAP_2D) == 0)
 	{
-		demoResult = StartMipMap2D(argc, argv);
+		runGameDemo = StartMipMap2D;
 	}
 	else if (strcmp(programToRun, START_GAME_SIMPLE_TEXTURED_CUBEMAP) == 0)
 	{
-		demoResult = StartSimpleTextureCubeMap(argc, argv);
+		runGameDemo = StartSimpleTextureCubeMap;
 	}
 	else if (strcmp(programToRun, START_GAME_TEXTURE_WRAP) == 0)
 	{
-		demoResult = StartTextureWrap(argc, argv);
+		runGameDemo = StartTextureWrap;
+	}
+
+	// Outcome of the selected runGameDemo value
+	if (runGameDemo != NULL)
+	{
+		demoResult = runGameDemo(argc, argv);
 	}
 	else
 	{
 		printf("Program %s not found.\n", programToRun);
-		demoResult = GAME_ERROR_DEMO_NOT_FOUND;
 	}
 
 	return demoResult;
