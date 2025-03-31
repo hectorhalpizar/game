@@ -4,10 +4,11 @@
 #include "textured_square.h"
 #include "mip_map_2d.h"
 #include "simple_texture_cubemap.h"
+#include "texture_wrap.h"
 
 int main(int argc, char * argv[]) {
 
-	char * programToRun = START_GAME_SIMPLE_TEXTURED_CUBEMAP;
+	char * programToRun = START_GAME_TEXTURE_WRAP;
 
 	if (argv[1] != NULL) {
 		programToRun = argv[1];
@@ -34,6 +35,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, START_GAME_SIMPLE_TEXTURED_CUBEMAP) == 0)
 	{
 		StartSimpleTextureCubeMap(argc, argv);
+	}
+	else if (strcmp(programToRun, START_GAME_TEXTURE_WRAP) == 0)
+	{
+		StartTextureWrap(argc, argv);
 	}
 	else
 	{

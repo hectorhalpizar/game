@@ -217,6 +217,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\texture_wrap.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\texture_wrap.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\textured_square.h"
 				>
 			</File>
