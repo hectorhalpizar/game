@@ -3,10 +3,11 @@
 #include "simple_vertex_shader.h"
 #include "textured_square.h"
 #include "mip_map_2d.h"
+#include "simple_texture_cubemap.h"
 
 int main(int argc, char * argv[]) {
 
-	char * programToRun = START_GAME_MIP_MAP_2D;
+	char * programToRun = START_GAME_SIMPLE_TEXTURED_CUBEMAP;
 
 	if (argv[1] != NULL) {
 		programToRun = argv[1];
@@ -29,6 +30,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, START_GAME_MIP_MAP_2D) == 0)
 	{
 		StartMipMap2D(argc, argv);
+	}
+	else if (strcmp(programToRun, START_GAME_SIMPLE_TEXTURED_CUBEMAP) == 0)
+	{
+		StartSimpleTextureCubeMap(argc, argv);
 	}
 	else
 	{
