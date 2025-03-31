@@ -5,10 +5,12 @@
 #include "mip_map_2d.h"
 #include "simple_texture_cubemap.h"
 #include "texture_wrap.h"
+#include "config.h"
 
 int main(int argc, char * argv[]) {
 
 	char * programToRun = START_GAME_TEXTURE_WRAP;
+	int demoResult = GAME_ERROR_NO_DEMO_SELECTED;
 
 	if (argv[1] != NULL) {
 		programToRun = argv[1];
@@ -18,32 +20,33 @@ int main(int argc, char * argv[]) {
 
 	if (strcmp(programToRun, START_GAME_TRIANGLE) == 0)
 	{
-		StartGameTriangle(argc, argv);
+		demoResult = StartGameTriangle(argc, argv);
 	}
 	else if (strcmp(programToRun, START_GAME_SIMPLE_VERTEX_SHADER) == 0)
 	{
-		StartSimpleVertexShader(argc, argv);
+		demoResult = StartSimpleVertexShader(argc, argv);
 	}
 	else if (strcmp(programToRun, START_GAME_TEXTURED_SQUARE) == 0)
 	{
-		StartTexturedSquare(argc, argv);
+		demoResult = StartTexturedSquare(argc, argv);
 	}
 	else if (strcmp(programToRun, START_GAME_MIP_MAP_2D) == 0)
 	{
-		StartMipMap2D(argc, argv);
+		demoResult = StartMipMap2D(argc, argv);
 	}
 	else if (strcmp(programToRun, START_GAME_SIMPLE_TEXTURED_CUBEMAP) == 0)
 	{
-		StartSimpleTextureCubeMap(argc, argv);
+		demoResult = StartSimpleTextureCubeMap(argc, argv);
 	}
 	else if (strcmp(programToRun, START_GAME_TEXTURE_WRAP) == 0)
 	{
-		StartTextureWrap(argc, argv);
+		demoResult = StartTextureWrap(argc, argv);
 	}
 	else
 	{
 		printf("Program %s not found.\n", programToRun);
+		demoResult = GAME_ERROR_DEMO_NOT_FOUND;
 	}
 
-	return 0;
+	return demoResult;
 }
