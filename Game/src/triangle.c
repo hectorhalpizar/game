@@ -3,6 +3,13 @@
 #include "triangle_shaders.h"
 #include "config.h"
 
+typedef struct
+{
+	// Handle to a program object
+	GLuint programObject;
+
+} UserData;
+
 ///
 // Create a shader object, load the shader source, and
 // compile the shader.

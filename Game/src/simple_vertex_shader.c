@@ -4,6 +4,32 @@
 #include "simple_vertex_shader_shaders.h"
 #include "config.h"
 
+typedef struct
+{
+   // Handle to a program object
+   GLuint programObject;
+
+   // Attribute locations
+   GLint  positionLoc;
+
+   // Uniform locations
+   GLint  mvpLoc;
+   
+   // Vertex daata
+   GLfloat  *vertices;
+   GLuint   *indices;
+   int       numIndices;
+
+   // Rotation angle
+   GLfloat   angle;
+
+   // MVP matrix
+   ESMatrix  mvpMatrix;
+} SimpleVertexShaderUserData;
+
+///
+// Initialize the shader and program object
+//
 int InitSimpleVertexShader(ESContext *esContext)
 {
    SimpleVertexShaderUserData *userData = esContext->userData;
@@ -30,6 +56,9 @@ int InitSimpleVertexShader(ESContext *esContext)
    return TRUE;
 }
 
+///
+// Update MVP matrix based on time
+//
 void UpdateSimpleVertexShader(ESContext *esContext, float deltaTime)
 {
    SimpleVertexShaderUserData *userData = (SimpleVertexShaderUserData*) esContext->userData;
@@ -63,6 +92,9 @@ void UpdateSimpleVertexShader(ESContext *esContext, float deltaTime)
    esMatrixMultiply(&userData->mvpMatrix, &modelview, &perspective);
 }
 
+///
+// Draw a triangle using the shader pair created in Init()
+//
 void DrawSimpleVertexShader(ESContext *esContext)
 {
    SimpleVertexShaderUserData *userData = esContext->userData;
@@ -93,6 +125,9 @@ void DrawSimpleVertexShader(ESContext *esContext)
    eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface);
 }
 
+///
+// Cleanup
+//
 void ShutDownSimpleVertexShader(ESContext *esContext)
 {
    SimpleVertexShaderUserData *userData = esContext->userData;

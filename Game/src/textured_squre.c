@@ -6,6 +6,23 @@
 
 #define GAME_TEXTURED_SQUARE "GameTexturedSquare"
 
+typedef struct
+{
+   // Handle to a program object
+   GLuint programObject;
+
+   // Attribute locations
+   GLint  positionLoc;
+   GLint  texCoordLoc;
+
+   // Sampler location
+   GLint samplerLoc;
+
+   // Texture handle
+   GLuint textureId;
+
+} TexturedSquareUserData;
+
 GLuint TexturedSquareCreateSimpleTexture2D()
 {
    // Texture object handle
@@ -39,6 +56,9 @@ GLuint TexturedSquareCreateSimpleTexture2D()
    return textureId;
 }
 
+///
+// Create a simple 2x2 texture image with four different colors
+//
 int TexturedSquareInit(ESContext *esContext)
 {
    TexturedSquareUserData *userData = esContext->userData;
@@ -63,6 +83,9 @@ int TexturedSquareInit(ESContext *esContext)
    return TRUE;
 }
 
+///
+// Draw a triangle using the shader pair created in Init()
+//
 void TexturedSquareDraw(ESContext *esContext)
 {
    TexturedSquareUserData *userData = esContext->userData;
@@ -108,6 +131,9 @@ void TexturedSquareDraw(ESContext *esContext)
    eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface);
 }
 
+///
+// Cleanup
+//
 void TexturedSquareShutDown(ESContext *esContext)
 {
    TexturedSquareUserData *userData = esContext->userData;
