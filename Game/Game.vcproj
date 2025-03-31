@@ -185,6 +185,18 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\mip_map_2d.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\mip_map_2d.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\mip_map_2d_shaders.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\simple_vertex_shader.c"
 				>
 			</File>

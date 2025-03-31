@@ -2,10 +2,11 @@
 #include "triangle.h"
 #include "simple_vertex_shader.h"
 #include "textured_square.h"
+#include "mip_map_2d.h"
 
 int main(int argc, char * argv[]) {
 
-	char * programToRun = START_GAME_TEXTURED_SQUARE;
+	char * programToRun = START_GAME_MIP_MAP_2D;
 
 	if (argv[1] != NULL) {
 		programToRun = argv[1];
@@ -24,6 +25,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, START_GAME_TEXTURED_SQUARE) == 0)
 	{
 		StartTexturedSquare(argc, argv);
+	}
+	else if (strcmp(programToRun, START_GAME_MIP_MAP_2D) == 0)
+	{
+		StartMipMap2D(argc, argv);
 	}
 	else
 	{
