@@ -197,6 +197,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\multitexture.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\multitexture.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\simple_texture_cubemap.c"
 				>
 			</File>

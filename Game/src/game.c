@@ -5,11 +5,12 @@
 #include "mip_map_2d.h"
 #include "simple_texture_cubemap.h"
 #include "texture_wrap.h"
+#include "multitexture.h"
 #include "config.h"
 
 int main(int argc, char * argv[]) {
 
-	char * programToRun = START_GAME_TEXTURE_WRAP;
+	char * programToRun = START_GAME_MULTITEXTURE;
 	int demoResult = GAME_ERROR_DEMO_NOT_FOUND;
 	int (*runGameDemo) (int, char **) = NULL;
 
@@ -43,6 +44,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, START_GAME_TEXTURE_WRAP) == 0)
 	{
 		runGameDemo = StartTextureWrap;
+	}
+	else if (strcmp(programToRun, START_GAME_MULTITEXTURE) == 0)
+	{
+		runGameDemo = StartMultiTexture;
 	}
 
 	// Outcome of the selected runGameDemo value
