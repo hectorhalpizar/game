@@ -6,11 +6,12 @@
 #include "simple_texture_cubemap.h"
 #include "texture_wrap.h"
 #include "multitexture.h"
+#include "multisample.h"
 #include "config.h"
 
 int main(int argc, char * argv[]) {
 
-	char * programToRun = START_GAME_MULTITEXTURE;
+	char * programToRun = START_GAME_MULTISAMPLE;
 	int demoResult = GAME_ERROR_DEMO_NOT_FOUND;
 	int (*runGameDemo) (int, char **) = NULL;
 
@@ -48,6 +49,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, START_GAME_MULTITEXTURE) == 0)
 	{
 		runGameDemo = StartMultiTexture;
+	}
+	else if (strcmp(programToRun, START_GAME_MULTISAMPLE) == 0)
+	{
+		runGameDemo = StartMultiSample;
 	}
 
 	// Outcome of the selected runGameDemo value

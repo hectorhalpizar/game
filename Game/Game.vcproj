@@ -197,6 +197,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\multisample.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\multisample.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\multitexture.c"
 				>
 			</File>
