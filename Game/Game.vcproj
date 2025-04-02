@@ -233,6 +233,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\stencil_test.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\stencil_test.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\texture_wrap.c"
 				>
 			</File>

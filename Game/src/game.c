@@ -7,11 +7,12 @@
 #include "texture_wrap.h"
 #include "multitexture.h"
 #include "multisample.h"
+#include "stencil_test.h"
 #include "config.h"
 
 int main(int argc, char * argv[]) {
 
-	char * programToRun = START_GAME_MULTISAMPLE;
+	char * programToRun = START_GAME_STENCIL_TEST;
 	int demoResult = GAME_ERROR_DEMO_NOT_FOUND;
 	int (*runGameDemo) (int, char **) = NULL;
 
@@ -53,6 +54,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, START_GAME_MULTISAMPLE) == 0)
 	{
 		runGameDemo = StartMultiSample;
+	}
+	else if (strcmp(programToRun, START_GAME_STENCIL_TEST) == 0)
+	{
+		runGameDemo = StartStencilTest;
 	}
 
 	// Outcome of the selected runGameDemo value
