@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "esUtil.h"
 
-#define START_GAME_TEXTURED_SQUARE "GameTexturedTriangle"
+#define START_GAME_TEXTURED_SQUARE "GameTexturedSquare"
 
 int StartTexturedSquare(int argc, char *argv[]);
 

@@ -4,8 +4,6 @@
 #include "textured_square_shaders.h"
 #include "config.h"
 
-#define GAME_TEXTURED_SQUARE "GameTexturedSquare"
-
 typedef struct
 {
    // Handle to a program object
