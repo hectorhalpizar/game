@@ -274,6 +274,18 @@
 				RelativePath=".\src\triangle_shaders.h"
 				>
 			</File>
+			<Filter
+				Name="main_game"
+				>
+				<File
+					RelativePath=".\src\main_game\boot.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\main_game\boot.hpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\Game.ico"

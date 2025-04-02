@@ -8,9 +8,10 @@
 #include "multitexture.h"
 #include "multisample.h"
 #include "stencil_test.h"
+#include "main_game/boot.hpp"
 #include "config.h"
 
-#define AMOUNT_OF_DEMOS 9
+#define AMOUNT_OF_DEMOS 10
 
 void printHelp(char * programToRun)
 {
@@ -18,7 +19,8 @@ void printHelp(char * programToRun)
 	START_GAME_SIMPLE_VERTEX_SHADER, START_GAME_TEXTURED_SQUARE,
 	START_GAME_MIP_MAP_2D, START_GAME_SIMPLE_TEXTURED_CUBEMAP,
 	START_GAME_TEXTURE_WRAP,START_GAME_MULTITEXTURE,
-	START_GAME_MULTISAMPLE, START_GAME_STENCIL_TEST };
+	START_GAME_MULTISAMPLE, START_GAME_STENCIL_TEST,
+	BOOT_GAME };
 
 	int demoIndex = 0;
 	printf("\nProgram %s not found.\n\nAvailable demos:\n", programToRun);
@@ -36,7 +38,7 @@ void printHelp(char * programToRun)
 
 int main(int argc, char * argv[]) {
 
-	char * programToRun = START_GAME_STENCIL_TEST;
+	char * programToRun = BOOT_GAME;
 	int demoResult = GAME_ERROR_DEMO_NOT_FOUND;
 	int (*runGameDemo) (int, char **) = NULL;
 
@@ -88,6 +90,10 @@ int main(int argc, char * argv[]) {
 	if (runGameDemo != NULL)
 	{
 		demoResult = runGameDemo(argc, argv);
+	}
+	else if (strcmp(programToRun, BOOT_GAME) == 0)
+	{
+		demoResult = BootGame(NULL);
 	}
 	else
 	{
