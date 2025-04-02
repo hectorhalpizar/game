@@ -171,6 +171,59 @@ GLboolean ESUTIL_API esCreateWindow ( ESContext *esContext, const char* title, G
 }
 
 ///
+//  esCreateWindow2()
+//
+//      title - name for title bar of window
+//      width - width of window to create
+//      height - height of window to create
+//      flags  - bitwise or of window creation flags 
+//          ES_WINDOW_ALPHA       - specifies that the framebuffer should have alpha
+//          ES_WINDOW_DEPTH       - specifies that a depth buffer should be created
+//          ES_WINDOW_STENCIL     - specifies that a stencil buffer should be created
+//          ES_WINDOW_MULTISAMPLE - specifies that a multi-sample buffer should be created
+//
+GLboolean ESUTIL_API esCreateWindow2 ( ESContext *esContext, const char* title, const int icon, GLint width, GLint height, GLuint flags )
+{
+   EGLint attribList[] =
+   {
+       EGL_RED_SIZE,       5,
+       EGL_GREEN_SIZE,     6,
+       EGL_BLUE_SIZE,      5,
+       EGL_ALPHA_SIZE,     (flags & ES_WINDOW_ALPHA) ? 8 : EGL_DONT_CARE,
+       EGL_DEPTH_SIZE,     (flags & ES_WINDOW_DEPTH) ? 8 : EGL_DONT_CARE,
+       EGL_STENCIL_SIZE,   (flags & ES_WINDOW_STENCIL) ? 8 : EGL_DONT_CARE,
+       EGL_SAMPLE_BUFFERS, (flags & ES_WINDOW_MULTISAMPLE) ? 1 : 0,
+       EGL_NONE
+   };
+   
+   if ( esContext == NULL )
+   {
+      return GL_FALSE;
+   }
+
+   esContext->width = width;
+   esContext->height = height;
+
+   if ( !WinCreate2 ( esContext, title, icon) )
+   {
+      return GL_FALSE;
+   }
+
+  
+   if ( !CreateEGLContext ( esContext->hWnd,
+                            &esContext->eglDisplay,
+                            &esContext->eglContext,
+                            &esContext->eglSurface,
+                            attribList) )
+   {
+      return GL_FALSE;
+   }
+   
+
+   return GL_TRUE;
+}
+
+///
 //  esMainLoop()
 //
 //    Start the main loop for the OpenGL ES application

@@ -45,6 +45,13 @@ extern "C" {
 GLboolean WinCreate ( ESContext *esContext, const char *title );
 
 ///
+//  WinCreate()
+//
+//      Create Win32 instance and window
+//
+GLboolean WinCreate2 ( ESContext *esContext, const char *title, const int icon );
+
+///
 //  WinLoop()
 //
 //      Start main windows loop
