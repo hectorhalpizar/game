@@ -403,3 +403,4 @@ FodyWeavers.xsd
 Common/Lib
 Game/pcviewer_es2.cfg
 Game/debug.txt
+!Common/Source/Win32
