@@ -276,6 +276,10 @@
 			</File>
 		</Filter>
 		<File
+			RelativePath=".\Game.ico"
+			>
+		</File>
+		<File
 			RelativePath=".\Game_Debug.rc"
 			>
 		</File>
