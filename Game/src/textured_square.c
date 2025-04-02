@@ -151,7 +151,7 @@ int StartTexturedSquare(int argc, char *argv[])
    esInitContext(&esContext);
    esContext.userData = &userData;
 
-   esCreateWindow(&esContext, "Textured Square", 320, 240, ES_WINDOW_RGB);
+   esCreateWindow2(&esContext, "Textured Square", WINDOW_ICON, 320, 240, ES_WINDOW_RGB);
    
    if(!TexturedSquareInit(&esContext))
       return GAME_ERROR_INIT_FAILED;

@@ -245,7 +245,7 @@ int StartStencilTest(int argc, char *argv[])
    esInitContext ( &esContext );
    esContext.userData = &userData;
 
-   esCreateWindow ( &esContext, "Stencil Test", 320, 240,
+   esCreateWindow2 ( &esContext, "Stencil Test", WINDOW_ICON, 320, 240,
                     ES_WINDOW_RGB | ES_WINDOW_DEPTH | ES_WINDOW_STENCIL );
 					//  ES_WINDOW_RGB); // This makes the same as the multisample.c
    

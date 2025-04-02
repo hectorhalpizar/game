@@ -202,7 +202,7 @@ int StartSimpleTextureCubeMap(int argc, char *argv[])
    esInitContext(&esContext);
    esContext.userData = &userData;
 
-   esCreateWindow(&esContext, "Simple Texture Cubemap", 320, 240, ES_WINDOW_RGB);
+   esCreateWindow2(&esContext, "Simple Texture Cubemap", WINDOW_ICON, 320, 240, ES_WINDOW_RGB);
    
    if (!SimpleTextureCubemapDrawInit(&esContext))
       return GAME_ERROR_INIT_FAILED;

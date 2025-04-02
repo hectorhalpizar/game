@@ -155,7 +155,7 @@ int StartGameTriangle(int argc, char *argv[])
 	esInitContext(&esContext);
 	esContext.userData = &userData;
 
-	esCreateWindow(&esContext, "Hello Triangle", 320, 240, ES_WINDOW_RGB);
+	esCreateWindow2(&esContext, "Hello Triangle", WINDOW_ICON, 320, 240, ES_WINDOW_RGB);
 
 	if(!Init(&esContext))
 		return GAME_ERROR_INIT_FAILED;

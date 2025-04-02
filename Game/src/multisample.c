@@ -273,7 +273,7 @@ int StartMultiSample(int argc, char *argv[])
    esInitContext ( &esContext );
    esContext.userData = &userData;
 
-   esCreateWindow ( &esContext, "Multi-sampling", 320, 240, ES_WINDOW_RGB );
+   esCreateWindow2 ( &esContext, "Multi-sampling", WINDOW_ICON, 320, 240, ES_WINDOW_RGB );
    
    if ( !MultisampleInit ( &esContext ) )
       return GAME_ERROR_INIT_FAILED;

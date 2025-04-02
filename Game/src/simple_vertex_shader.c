@@ -154,7 +154,7 @@ int StartSimpleVertexShader(int argc, char *argv[])
    esInitContext(&esContext);
    esContext.userData = &userData;
 
-   esCreateWindow(&esContext, "Simple Vertex Shader", 320, 240, ES_WINDOW_RGB);
+   esCreateWindow2(&esContext, "Simple Vertex Shader", WINDOW_ICON, 320, 240, ES_WINDOW_RGB);
    
    if (!InitSimpleVertexShader(&esContext))
       return GAME_ERROR_INIT_FAILED;

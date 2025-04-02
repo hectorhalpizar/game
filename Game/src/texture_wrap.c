@@ -228,7 +228,7 @@ int StartTextureWrap ( int argc, char *argv[] )
    esInitContext ( &esContext );
    esContext.userData = &userData;
 
-   esCreateWindow ( &esContext, "MipMap 2D", 640, 480, ES_WINDOW_RGB );
+   esCreateWindow2 ( &esContext, "MipMap 2D", WINDOW_ICON, 640, 480, ES_WINDOW_RGB );
    
    if ( !TextureWrapInit ( &esContext ) )
       return GAME_ERROR_INIT_FAILED;

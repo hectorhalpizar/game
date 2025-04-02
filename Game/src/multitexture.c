@@ -186,7 +186,7 @@ int StartMultiTexture(int argc, char* argv[])
    esInitContext ( &esContext );
    esContext.userData = &userData;
 
-   esCreateWindow ( &esContext, "MultiTexture", 320, 240, ES_WINDOW_RGB );
+   esCreateWindow2 ( &esContext, "MultiTexture", WINDOW_ICON, 320, 240, ES_WINDOW_RGB );
    
    if ( !MultiTextureInit ( &esContext ) )
       return GAME_ERROR_INIT_FAILED;
