@@ -10,6 +10,30 @@
 #include "stencil_test.h"
 #include "config.h"
 
+#define AMOUNT_OF_DEMOS 9
+
+void printHelp(char * programToRun)
+{
+	char * DEMOS_AVAILABLE [AMOUNT_OF_DEMOS] = { START_GAME_TRIANGLE,
+	START_GAME_SIMPLE_VERTEX_SHADER, START_GAME_TEXTURED_SQUARE,
+	START_GAME_MIP_MAP_2D, START_GAME_SIMPLE_TEXTURED_CUBEMAP,
+	START_GAME_TEXTURE_WRAP,START_GAME_MULTITEXTURE,
+	START_GAME_MULTISAMPLE, START_GAME_STENCIL_TEST };
+
+	int demoIndex = 0;
+	printf("\nProgram %s not found.\n\nAvailable demos:\n", programToRun);
+
+	for (demoIndex; demoIndex < AMOUNT_OF_DEMOS; demoIndex ++)
+	{
+		printf("\t%s\n", DEMOS_AVAILABLE[demoIndex]);
+	}
+
+	printf("\n\n\tRun: Game.exe <DEMO ARGUMENT>" \
+		   "\n\n"
+		   "\tExample: Game.exe GameTexturedTriangle"
+		   "\n\n\n");
+}
+
 int main(int argc, char * argv[]) {
 
 	char * programToRun = START_GAME_STENCIL_TEST;
@@ -67,7 +91,7 @@ int main(int argc, char * argv[]) {
 	}
 	else
 	{
-		printf("Program %s not found.\n", programToRun);
+		printHelp(programToRun);
 	}
 
 	return demoResult;
