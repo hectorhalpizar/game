@@ -286,6 +286,22 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="ogldev"
+				>
+				<File
+					RelativePath=".\src\ogldev\triangle_uniform_variables.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_uniform_variables.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_uniform_variables_shaders.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\Game.ico"

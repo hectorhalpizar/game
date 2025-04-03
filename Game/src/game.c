@@ -9,6 +9,7 @@
 #include "multisample.h"
 #include "stencil_test.h"
 #include "main_game/boot.hpp"
+#include "ogldev/triangle_uniform_variables.hpp"
 #include "config.h"
 
 #define AMOUNT_OF_DEMOS 10
@@ -30,7 +31,7 @@ void printHelp(char * programToRun)
 		printf("\t%s\n", DEMOS_AVAILABLE[demoIndex]);
 	}
 
-	printf("\n\n\tRun: Game.exe <DEMO ARGUMENT>" \
+	printf("\n\n\tRun: Game.exe <DEMO ARGUMENT>"
 		   "\n\n"
 		   "\tExample: Game.exe GameTexturedTriangle"
 		   "\n\n\n");
@@ -84,6 +85,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, START_GAME_STENCIL_TEST) == 0)
 	{
 		runGameDemo = StartStencilTest;
+	}
+	else if (strcmp(programToRun, START_GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES) == 0)
+	{
+		runGameDemo = StartOglDevGameTriangleUniformVariables;
 	}
 
 	// Outcome of the selected runGameDemo value
