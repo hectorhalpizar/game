@@ -290,6 +290,18 @@
 				Name="ogldev"
 				>
 				<File
+					RelativePath=".\src\ogldev\triangle_rotation.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_rotation.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_rotation_shaders.h"
+					>
+				</File>
+				<File
 					RelativePath=".\src\ogldev\triangle_translation.cpp"
 					>
 				</File>
