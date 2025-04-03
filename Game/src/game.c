@@ -10,6 +10,7 @@
 #include "stencil_test.h"
 #include "main_game/boot.hpp"
 #include "ogldev/triangle_uniform_variables.hpp"
+#include "ogldev/triangle_translation.hpp"
 #include "config.h"
 
 #define AMOUNT_OF_DEMOS 10
@@ -89,6 +90,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, START_GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES) == 0)
 	{
 		runGameDemo = StartOglDevGameTriangleUniformVariables;
+	}
+	else if (strcmp(programToRun, START_GAME_OGLDEV_TRIANGLE_TRANSLATION) == 0)
+	{
+		runGameDemo = StartOglDevGameTriangleTranslation;
 	}
 
 	// Outcome of the selected runGameDemo value

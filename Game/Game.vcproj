@@ -290,6 +290,18 @@
 				Name="ogldev"
 				>
 				<File
+					RelativePath=".\src\ogldev\triangle_translation.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_translation.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_translation_shaders.h"
+					>
+				</File>
+				<File
 					RelativePath=".\src\ogldev\triangle_uniform_variables.cpp"
 					>
 				</File>
