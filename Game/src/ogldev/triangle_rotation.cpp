@@ -5,6 +5,7 @@
 #include "triangle_rotation_shaders.h"
 #include "../config.h"
 #include "esUtil.h"
+#include "../api/game_math.h"
 
 // Definition of the class
 class TriangleRotation {
@@ -153,34 +154,15 @@ private:
 							0.0f,                 0.0f,                  0.0f, 1.0f
 						  };
 
-		GLfloat TransposedWorld[16];
-
-		TransposedWorld[0]  = World[0];
-		TransposedWorld[1]  = World[4];
-		TransposedWorld[2]  = World[8];
-		TransposedWorld[3]  = World[12];
-
-		TransposedWorld[4]  = World[1];
-		TransposedWorld[5]  = World[5];
-		TransposedWorld[6]  = World[9];
-		TransposedWorld[7]  = World[13];
-
-		TransposedWorld[8]  = World[2];
-		TransposedWorld[9]  = World[6];
-		TransposedWorld[10] = World[10];
-		TransposedWorld[11] = World[14];
-
-		TransposedWorld[12] = World[3];
-		TransposedWorld[13] = World[7];
-		TransposedWorld[14] = World[11];
-		TransposedWorld[15] = World[15];
+		GLint rows = 4; GLint columns = 4;
+		TransposeArray(World, &rows, &columns);
 
 		/**
 		 * OpenGLES transpose parameter GL_TRUE does NOT (ALWAYS) works as expected
 		 * as in OpenGL. Therefore the transpose needs to be done manually.
 		 */
 		// glUniformMatrix4fv(userData->Demo->uRotation, 1, GL_TRUE, World);
-		glUniformMatrix4fv(userData->Demo->uRotation, 1, GL_FALSE, TransposedWorld);
+		glUniformMatrix4fv(userData->Demo->uRotation, 1, GL_FALSE, World);
 
 		// Load the vertex data
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
