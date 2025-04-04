@@ -9,6 +9,8 @@ extern "C" {
 
 void TransposeArray(float *matrix, int *rows, int *cols);
 
+void MultiplyMatrixAsArray(float *A, float *B, float *Result, int m, int n, int p);
+
 #ifdef __cplusplus
 } 
 #endif

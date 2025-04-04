@@ -26,7 +26,7 @@ public:
 	GLint aPosition;
 
 	// Uniforms
-	GLint uRotation;
+	GLint uScale;
 
 	static GLuint VBO;
 
@@ -101,11 +101,11 @@ private:
 		}
 
 		// Get the uniform offset location
-		userData->Demo->uRotation = glGetUniformLocation( userData->Demo->programObject, "u_scale" );
+		userData->Demo->uScale = glGetUniformLocation( userData->Demo->programObject, "u_scale" );
 
-		if (userData->Demo->uRotation <= -1)
+		if (userData->Demo->uScale <= -1)
 		{
-			esLogMessage("Error getting userData->u_scale:\n%d\n", userData->Demo->uRotation);
+			esLogMessage("Error getting userData->u_scale:\n%d\n", userData->Demo->uScale);
 			return FALSE;
 		}
 
@@ -150,8 +150,52 @@ private:
 		 * OpenGLES transpose parameter GL_TRUE does NOT (ALWAYS) works as expected
 		 * as in OpenGL. Therefore the transpose needs to be done manually.
 		 */
-		// glUniformMatrix4fv(userData->Demo->uRotation, 1, GL_TRUE, ScaleMatrix);
-		glUniformMatrix4fv(userData->Demo->uRotation, 1, GL_FALSE, ScaleMatrix);
+		// glUniformMatrix4fv(userData->Demo->uScale, 1, GL_TRUE, ScaleMatrix);
+		glUniformMatrix4fv(userData->Demo->uScale, 1, GL_FALSE, ScaleMatrix);
+	}
+
+	static void CombinedTranformation1(UserData *userData)
+	{
+		static float Scale = 1.5f;
+
+		GLfloat ScalingMatrix[] = { Scale, 0.0f,  0.0f,  0.0f,
+								  0.0f,  Scale, 0.0f,  0.0f,
+								  0.0f,  0.0f,  Scale, 0.0f,
+								  0.0f,  0.0f,  0.0f,  1.0f };
+
+		GLint rows = 4; GLint columns = 4;
+		// TransposeArray(ScalingMatrix, &rows, &columns);
+
+		static float Loc = 0.0f;
+		static float Delta = 0.01f;
+
+		Loc += Delta;
+		if ((Loc >= 0.5f) || (Loc <= -0.5f)) {
+			Delta *= -1.0f;
+		}
+
+		GLfloat TranslationMatrix [] = { 
+										1.0f, 0.0f, 0.0f, Loc,
+							            0.0f, 1.0f, 0.0f, 0.0,
+							            0.0f, 0.0f, 1.0f, 0.0,
+							            0.0f, 0.0f, 0.0f, 1.0f
+									   };
+		
+		// TransposeArray(TranslationMatrix, &rows, &columns);
+
+		#define MATRIX_SIZE 16
+
+		GLfloat FinalTransformMatrix[MATRIX_SIZE];
+		MultiplyMatrixAsArray(ScalingMatrix, TranslationMatrix, FinalTransformMatrix, 4, 4, 4);
+
+		TransposeArray(FinalTransformMatrix, &rows, &columns);
+
+		/**
+		 * OpenGLES transpose parameter GL_TRUE does NOT (ALWAYS) works as expected
+		 * as in OpenGL. Therefore the transpose needs to be done manually.
+		 */
+		// glUniformMatrix4fv(userData->Demo->uScale, 1, GL_TRUE, FinalTransformMatrix);
+		glUniformMatrix4fv(userData->Demo->uScale, 1, GL_FALSE, FinalTransformMatrix);
 	}
 
 	static void Draw(ESContext *esContext)
@@ -167,7 +211,8 @@ private:
 		// Use the program object
 		glUseProgram(userData->Demo->programObject);
 
-		SimpleScaling(userData);
+		// SimpleScaling(userData);
+		CombinedTranformation1(userData);
 
 		// Load the vertex data
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
