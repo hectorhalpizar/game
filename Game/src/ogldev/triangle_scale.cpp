@@ -198,6 +198,49 @@ private:
 		glUniformMatrix4fv(userData->Demo->uScale, 1, GL_FALSE, FinalTransformMatrix);
 	}
 
+	static void CombinedTranformation2(UserData *userData)
+	{
+		static float Scale = 0.25f;
+
+		GLfloat Scaling [] = { Scale, 0.0f,  0.0f,  0.0f,
+							   0.0f,  Scale, 0.0f,  0.0f,
+						       0.0f,  0.0f,  Scale, 0.0f,
+							   0.0f,  0.0f,  0.0f,  1.0f };
+
+		static float AngleInRadians = 0.0f;
+		static float Delta = 0.01f;
+
+		AngleInRadians += Delta;
+
+		GLfloat Rotation [] = { cosf(AngleInRadians), -sinf(AngleInRadians), 0.0f, 0.0f,
+						        sinf(AngleInRadians), cosf(AngleInRadians),  0.0f, 0.0f,
+						        0.0,                  0.0f,                  1.0f, 0.0f,
+								0.0f,                 0.0f,                  0.0f, 1.0f };
+
+		static float Loc = 0.5f;
+
+		GLfloat Translation [] = { 1.0f, 0.0f, 0.0f, Loc,
+							       0.0f, 1.0f, 0.0f, 0.0,
+							       0.0f, 0.0f, 1.0f, 0.0,
+								   0.0f, 0.0f, 0.0f, 1.0f };
+
+		//// Matrix4f FinalTransform = Translation * Rotation * Scaling;
+		// Matrix4f FinalTransform = Rotation * Translation * Scaling;
+		GLint rows = 4; GLint columns = 4;
+
+		/**
+		 * This is hideous. This needs a better Multiply Matrix function
+		 */
+		GLfloat Temporal [MATRIX_SIZE];
+		GLfloat FinalTransform [MATRIX_SIZE];
+		MultiplyMatrixAsArray(Rotation, Translation, Temporal, rows, rows, rows);
+		MultiplyMatrixAsArray(Temporal, Scaling, FinalTransform, rows, rows, rows);
+
+		TransposeArray(FinalTransform, &rows, &columns);
+
+		glUniformMatrix4fv(userData->Demo->uScale, 1, GL_FALSE, FinalTransform);
+	}
+
 	static void Draw(ESContext *esContext)
 	{
 		UserData *userData = (UserData *)esContext->userData;
@@ -211,8 +254,10 @@ private:
 		// Use the program object
 		glUseProgram(userData->Demo->programObject);
 
+		// Use one of these three functions
 		// SimpleScaling(userData);
-		CombinedTranformation1(userData);
+		// CombinedTranformation1(userData);
+		CombinedTranformation2(userData);
 
 		// Load the vertex data
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
