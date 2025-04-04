@@ -234,7 +234,7 @@ public:
 
 GLuint TriangleTranslation::VBO = 0;
 
-int StartOglDevGameTriangleTranslation(int argc, char *argv[])
+int RunOglDevGameTriangleTranslation(int argc, char *argv[])
 {
 	TriangleTranslation triangleTranslation;
 	return triangleTranslation.Start(argc, argv);

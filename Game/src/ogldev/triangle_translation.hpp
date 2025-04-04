@@ -5,11 +5,11 @@
 extern "C" {
 #endif
 
-#define START_GAME_OGLDEV_TRIANGLE_TRANSLATION "StartOglDevGameTriangleTranslation"
+#define RUN_GAME_OGLDEV_TRIANGLE_TRANSLATION "RunOglDevGameTriangleTranslation"
 
 ///
-// StartOglDevGameTriangleTranslation
-int StartOglDevGameTriangleTranslation(int argc, char *argv[]);
+// RunOglDevGameTriangleTranslation
+int RunOglDevGameTriangleTranslation(int argc, char *argv[]);
 
 #ifdef __cplusplus
 }

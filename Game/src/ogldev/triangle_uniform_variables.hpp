@@ -5,11 +5,11 @@
 extern "C" {
 #endif
 
-#define START_GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES "StartOglDevGameTriangleUniformVariables"
+#define RUN_GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES "RunOglDevGameTriangleUniformVariables"
 
 ///
-// StartOglDevGameTriangleUniformVariables
-int StartOglDevGameTriangleUniformVariables(int argc, char *argv[]);
+// RunOglDevGameTriangleUniformVariables
+int RunOglDevGameTriangleUniformVariables(int argc, char *argv[]);
 
 #ifdef __cplusplus
 }

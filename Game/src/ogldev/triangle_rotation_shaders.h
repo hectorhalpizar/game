@@ -1,5 +1,5 @@
-#ifndef __GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES_SHADERS_HPP__
-#define __GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES_SHADERS_HPP__ 
+#ifndef __GAME_OGLDEV_TRIANGLE_ROTATION_SHADERS_HPP__
+#define __GAME_OGLDEV_TRIANGLE_ROTATION_SHADERS_HPP__ 
 
 char * getTriangleRotationVertexShader()
 {
@@ -22,4 +22,4 @@ char * getTriangleRotationFragmentShader()
 		"}                                            \n";
 };
 
-#endif // __GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES_SHADERS_HPP__ 
+#endif // __GAME_OGLDEV_TRIANGLE_ROTATION_SHADERS_HPP__ 

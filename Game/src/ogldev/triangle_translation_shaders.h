@@ -1,5 +1,5 @@
-#ifndef __GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES_SHADERS_HPP__
-#define __GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES_SHADERS_HPP__ 
+#ifndef __GAME_OGLDEV_TRIANGLE_TRANSLATION_SHADERS_HPP__
+#define __GAME_OGLDEV_TRIANGLE_TRANSLATION_SHADERS_HPP__ 
 
 char * getTriangleTranslationVertexShader()
 {
@@ -22,4 +22,4 @@ char * getTriangleTranslationFragmentShader()
 		"}                                            \n";
 };
 
-#endif // __GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES_SHADERS_HPP__ 
+#endif // __GAME_OGLDEV_TRIANGLE_TRANSLATION_SHADERS_HPP__ 

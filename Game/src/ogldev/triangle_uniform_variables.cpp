@@ -177,7 +177,7 @@ public:
 	}
 };
 
-int StartOglDevGameTriangleUniformVariables(int argc, char *argv[])
+int RunOglDevGameTriangleUniformVariables(int argc, char *argv[])
 {
 	TriangleUniformVariables Demo;
 	return Demo.Start(argc, argv);

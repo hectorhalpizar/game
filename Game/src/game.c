@@ -15,16 +15,26 @@
 #include "ogldev/triangle_scale.hpp"
 #include "config.h"
 
-#define AMOUNT_OF_DEMOS 10
+#define AMOUNT_OF_DEMOS 14
 
 void printHelp(char * programToRun)
 {
-	char * DEMOS_AVAILABLE [AMOUNT_OF_DEMOS] = { START_GAME_TRIANGLE,
-	START_GAME_SIMPLE_VERTEX_SHADER, START_GAME_TEXTURED_SQUARE,
-	START_GAME_MIP_MAP_2D, START_GAME_SIMPLE_TEXTURED_CUBEMAP,
-	START_GAME_TEXTURE_WRAP,START_GAME_MULTITEXTURE,
-	START_GAME_MULTISAMPLE, START_GAME_STENCIL_TEST,
-	BOOT_GAME };
+	char * DEMOS_AVAILABLE [AMOUNT_OF_DEMOS] = { 
+		START_GAME_TRIANGLE,
+		START_GAME_SIMPLE_VERTEX_SHADER,
+		START_GAME_TEXTURED_SQUARE,
+		START_GAME_MIP_MAP_2D,
+		START_GAME_SIMPLE_TEXTURED_CUBEMAP,
+		START_GAME_TEXTURE_WRAP,
+		START_GAME_MULTITEXTURE,
+		START_GAME_MULTISAMPLE,
+		START_GAME_STENCIL_TEST,
+		BOOT_GAME, 
+		RUN_GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES,
+		RUN_GAME_OGLDEV_TRIANGLE_TRANSLATION,
+		RUN_GAME_OGLDEV_TRIANGLE_ROTATION,
+		RUN_GAME_OGLDEV_TRIANGLE_SCALE 
+	};
 
 	int demoIndex = 0;
 	printf("\nProgram %s not found.\n\nAvailable demos:\n", programToRun);
@@ -89,15 +99,15 @@ int main(int argc, char * argv[]) {
 	{
 		runGameDemo = StartStencilTest;
 	}
-	else if (strcmp(programToRun, START_GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES) == 0)
+	else if (strcmp(programToRun, RUN_GAME_OGLDEV_TRIANGLE_UNIFORM_VARIABLES) == 0)
 	{
-		runGameDemo = StartOglDevGameTriangleUniformVariables;
-	}
-	else if (strcmp(programToRun, START_GAME_OGLDEV_TRIANGLE_TRANSLATION) == 0)
-	{
-		runGameDemo = StartOglDevGameTriangleTranslation;
+		runGameDemo = RunOglDevGameTriangleUniformVariables;
 	}
 	else if (strcmp(programToRun, RUN_GAME_OGLDEV_TRIANGLE_TRANSLATION) == 0)
+	{
+		runGameDemo = RunOglDevGameTriangleTranslation;
+	}
+	else if (strcmp(programToRun, RUN_GAME_OGLDEV_TRIANGLE_ROTATION) == 0)
 	{
 		runGameDemo = RunOglDevGameTriangleRotation;
 	}

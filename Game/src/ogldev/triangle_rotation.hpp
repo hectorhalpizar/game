@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-#define RUN_GAME_OGLDEV_TRIANGLE_TRANSLATION "RunOglDevGameTriangleRotation"
+#define RUN_GAME_OGLDEV_TRIANGLE_ROTATION "RunOglDevGameTriangleRotation"
 
 ///
 // RunOglDevGameTriangleRotation
