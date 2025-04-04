@@ -146,8 +146,7 @@ private:
 			Delta *= -1.0f;
 		}
 
-		// Set the Scale value with Sin using sinf
-		GLfloat World[] = {  
+		GLfloat RotationMatrix[] = {  
 							cosf(AngleInRadians), -sinf(AngleInRadians), 0.0f, 0.0f,
 							sinf(AngleInRadians), cosf(AngleInRadians),  0.0f, 0.0f,
 							0.0,                  0.0f,                  1.0f, 0.0f,
@@ -155,14 +154,14 @@ private:
 						  };
 
 		GLint rows = 4; GLint columns = 4;
-		TransposeArray(World, &rows, &columns);
+		TransposeArray(RotationMatrix, &rows, &columns);
 
 		/**
 		 * OpenGLES transpose parameter GL_TRUE does NOT (ALWAYS) works as expected
 		 * as in OpenGL. Therefore the transpose needs to be done manually.
 		 */
-		// glUniformMatrix4fv(userData->Demo->uRotation, 1, GL_TRUE, World);
-		glUniformMatrix4fv(userData->Demo->uRotation, 1, GL_FALSE, World);
+		// glUniformMatrix4fv(userData->Demo->uRotation, 1, GL_TRUE, RotationMatrix);
+		glUniformMatrix4fv(userData->Demo->uRotation, 1, GL_FALSE, RotationMatrix);
 
 		// Load the vertex data
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
