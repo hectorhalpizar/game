@@ -302,6 +302,18 @@
 					>
 				</File>
 				<File
+					RelativePath=".\src\ogldev\triangle_scale.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_scale.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_scale_shaders.h"
+					>
+				</File>
+				<File
 					RelativePath=".\src\ogldev\triangle_translation.cpp"
 					>
 				</File>

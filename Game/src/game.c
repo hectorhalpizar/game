@@ -12,6 +12,7 @@
 #include "ogldev/triangle_uniform_variables.hpp"
 #include "ogldev/triangle_translation.hpp"
 #include "ogldev/triangle_rotation.hpp"
+#include "ogldev/triangle_scale.hpp"
 #include "config.h"
 
 #define AMOUNT_OF_DEMOS 10
@@ -99,6 +100,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, RUN_GAME_OGLDEV_TRIANGLE_TRANSLATION) == 0)
 	{
 		runGameDemo = RunOglDevGameTriangleRotation;
+	}
+	else if (strcmp(programToRun, RUN_GAME_OGLDEV_TRIANGLE_SCALE) == 0)
+	{
+		runGameDemo = RunOglDevGameTriangleScale;
 	}
 
 	// Outcome of the selected runGameDemo value
