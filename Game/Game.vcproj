@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\Common\Include"
+				AdditionalIncludeDirectories="..\Common\Include;..\Utils\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,6 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				UseLibraryDependencyInputs="false"
 				AdditionalDependencies="libEGL.lib libGLESv2.lib"
 				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).exe"
 				LinkIncremental="2"
@@ -289,6 +290,18 @@
 			<Filter
 				Name="ogldev"
 				>
+				<File
+					RelativePath=".\src\ogldev\triangle_index_draws.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_index_draws.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_index_draws_shaders.h"
+					>
+				</File>
 				<File
 					RelativePath=".\src\ogldev\triangle_interpolation_color.cpp"
 					>
