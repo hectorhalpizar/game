@@ -13,6 +13,7 @@
 #include "ogldev/triangle_translation.hpp"
 #include "ogldev/triangle_rotation.hpp"
 #include "ogldev/triangle_scale.hpp"
+#include "ogldev/triangle_interpolation_color.hpp"
 #include "config.h"
 
 #define AMOUNT_OF_DEMOS 14
@@ -114,6 +115,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, RUN_GAME_OGLDEV_TRIANGLE_SCALE) == 0)
 	{
 		runGameDemo = RunOglDevGameTriangleScale;
+	}
+	else if (strcmp(programToRun, RUN_GAME_OGLDEV_TRIANGLE_INTERPOLATION_COLOR) == 0)
+	{
+		runGameDemo = RunOglGameDevTriangleInterpolationColor;
 	}
 
 	// Outcome of the selected runGameDemo value

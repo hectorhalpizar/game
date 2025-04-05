@@ -290,6 +290,18 @@
 				Name="ogldev"
 				>
 				<File
+					RelativePath=".\src\ogldev\triangle_interpolation_color.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_interpolation_color.hpp"
+					>
+				</File>
+				<File
+					RelativePath=".\src\ogldev\triangle_interpolation_color_shaders.h"
+					>
+				</File>
+				<File
 					RelativePath=".\src\ogldev\triangle_rotation.cpp"
 					>
 				</File>
