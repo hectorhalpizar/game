@@ -6,6 +6,7 @@
 #include "../config.h"
 #include "esUtil.h"
 #include "../api/game_math.h"
+#include "transformation.h"
 
 // Definition of the class
 class TriangleTranslation {
@@ -147,13 +148,12 @@ private:
 		}
 
 		// Set the Scale value with Sin using sinf
-		GLfloat WorldMatrix[] = {  
-							1.0f,  0.0f, 0.0f, Scale * 2,
-							0.0f,  1.0f, 0.0f, Scale,
-							0.0f,  0.0f, 1.0f, 0.0f,
-						    0.0f,  0.0f, 0.0f, 1.0f 
-						  };
-
+		GLfloat WorldMatrix[16];
+		
+		// translateColumnMajor(WorldMatrix, Scale * 2, Scale, 0);
+	
+		// This requires for the matrixVector to transpose
+		translateRowMajor(WorldMatrix, Scale * 2, Scale, 0);
 		GLint rows = 4; GLint columns = 4;
 		TransposeArray(WorldMatrix, &rows, &columns);
 
