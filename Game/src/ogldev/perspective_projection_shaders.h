@@ -1,5 +1,5 @@
-#ifndef __GAME_OGLDEV_TRIANGLE_INDEX_DRAWS_SHADERS_HPP__
-#define __GAME_OGLDEV_TRIANGLE_INDEX_DRAWS_SHADERS_HPP__
+#ifndef __GAME_OGLDEV_PESPSPECTIVE_PROJECTION_SHADERS_HPP__
+#define __GAME_OGLDEV_PESPSPECTIVE_PROJECTION_SHADERS_HPP__
 
 char * getPerspectiveProjectionVertexShader()
 {
@@ -33,4 +33,4 @@ char * getPerspectiveProjectionFragmentShader()
 		"}								\n";
 }
 
-#endif // __GAME_OGLDEV_TRIANGLE_INDEX_DRAWS_SHADERS_HPP__
+#endif // __GAME_OGLDEV_PESPSPECTIVE_PROJECTION_SHADERS_HPP__
