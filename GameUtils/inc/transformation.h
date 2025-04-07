@@ -36,6 +36,23 @@ void rotateColumnMajor
 	float radiansZ
 );
 
+void scaleRowMajor
+(
+	float *matrixVector,
+	float x, 
+	float y, 
+	float z
+);
+
+void scaleColumnMajor
+(
+	float *matrixVector,
+	float x, 
+	float y, 
+	float z
+);
+
+
 #ifdef __cplusplus
 }
 #endif
