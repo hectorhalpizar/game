@@ -9,7 +9,12 @@ struct Vertex {
 
 	Vertex(float x, float y)
 	{
-		pos[0] = x; pos[1] = y; pos[2] = 1.f;
+		Vertex(x, y, 1.f);
+	}
+
+	Vertex(float x, float y, float z)
+	{
+		pos[0] = x; pos[1] = y; pos[2] = z;
 
 		float red   = (float)rand() / (float)RAND_MAX;
 		float green = (float)rand() / (float)RAND_MAX;
