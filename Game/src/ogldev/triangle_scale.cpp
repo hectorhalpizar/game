@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <math.h>
 
+#include "game_math.h"
+
 #include "triangle_scale.hpp"
 #include "triangle_scale_shaders.h"
 #include "../config.h"

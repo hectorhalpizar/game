@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <math.h>
 
+#include "game_math.h"
+
 #include "triangle_interpolation_color.hpp"
 #include "triangle_interpolation_color_shaders.h"
 #include "../config.h"

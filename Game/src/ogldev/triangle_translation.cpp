@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <math.h>
 
+#include "game_math.h"
+
 #include "triangle_translation.hpp"
 #include "triangle_translation_shaders.h"
 #include "../config.h"

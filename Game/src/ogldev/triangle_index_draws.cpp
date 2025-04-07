@@ -2,6 +2,8 @@
 #include <math.h>
 #include <cstddef>
 
+#include "game_math.h"
+
 #include "triangle_index_draws.hpp"
 #include "triangle_index_draws_shaders.h"
 #include "../config.h"

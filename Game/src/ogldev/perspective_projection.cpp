@@ -3,6 +3,7 @@
 #include <cstddef>
 
 #include "transformation.h"
+#include "game_math.h"
 
 #include "perspective_projection.hpp"
 #include "perspective_projection_shaders.h"

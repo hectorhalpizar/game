@@ -382,14 +382,6 @@
 			<Filter
 				Name="api"
 				>
-				<File
-					RelativePath=".\src\api\game_math.c"
-					>
-				</File>
-				<File
-					RelativePath=".\src\api\game_math.h"
-					>
-				</File>
 			</Filter>
 		</Filter>
 		<File
