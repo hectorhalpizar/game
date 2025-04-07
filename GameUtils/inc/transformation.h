@@ -20,6 +20,22 @@ void translateRowMajor
 	float z
 );
 
+void rotateRowMajor
+(
+	float *matrixVector,
+	float radiansX,
+	float radiansY,
+	float radiansZ
+);
+
+void rotateColumnMajor
+(
+	float *matrixVector,
+	float radiansX,
+	float radiansY,
+	float radiansZ
+);
+
 #ifdef __cplusplus
 }
 #endif
