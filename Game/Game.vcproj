@@ -362,6 +362,10 @@
 					RelativePath=".\src\ogldev\triangle_uniform_variables_shaders.h"
 					>
 				</File>
+				<File
+					RelativePath=".\src\ogldev\Vertex.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="api"

@@ -8,6 +8,9 @@
 #include "esUtil.h"
 #include "../api/game_math.h"
 
+#include "Vertex.h"
+
+
 // Definition of the class
 class TriangleIndexDraw {
 
@@ -18,23 +21,6 @@ private:
 		TriangleIndexDraw * Demo;
 
 	} UserData;
-
-	struct Vertex {
-		GLfloat pos[3];
-		GLfloat color[3];
-
-		Vertex() {}
-
-		Vertex(float x, float y)
-		{
-			pos[0] = x; pos[1] = y; pos[2] = 1.f;
-
-			float red   = (float)rand() / (float)RAND_MAX;
-			float green = (float)rand() / (float)RAND_MAX;
-			float blue  = (float)rand() / (float)RAND_MAX;
-			color[0] = red; color[1] = green; color[2] = blue;
-		}
-	};
 
 public:
 	// Handle to a program object
