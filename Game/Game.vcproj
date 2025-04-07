@@ -379,10 +379,6 @@
 					>
 				</File>
 			</Filter>
-			<Filter
-				Name="api"
-				>
-			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\Game.ico"
