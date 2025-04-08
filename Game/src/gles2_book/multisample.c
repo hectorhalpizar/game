@@ -1,7 +1,8 @@
-#include "stencil_test.h"
+#include "multisample.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "esUtil.h"
-#include "config.h"
+#include "../config.h"
 
 typedef struct
 {
@@ -19,7 +20,7 @@ typedef struct
 ///
 // Initialize the shader and program object
 //
-int StencilTestInit ( ESContext *esContext )
+int MultisampleInit ( ESContext *esContext )
 {
    UserData *userData = esContext->userData;
    GLbyte vShaderStr[] =  
@@ -66,7 +67,7 @@ int StencilTestInit ( ESContext *esContext )
 // Initialize the stencil buffer values, and then use those
 //   values to control rendering
 //
-void StencilTestDraw ( ESContext *esContext )
+void MultisampleDraw ( ESContext *esContext )
 {
    int  i;
 
@@ -226,10 +227,11 @@ void StencilTestDraw ( ESContext *esContext )
    eglSwapBuffers ( esContext->eglDisplay, esContext->eglSurface );
 }
 
+
 ///
 // Cleanup
 //
-void StencilTestShutDown ( ESContext *esContext )
+void MultisampleShutDown ( ESContext *esContext )
 {
    UserData *userData = esContext->userData;
 
@@ -237,7 +239,33 @@ void StencilTestShutDown ( ESContext *esContext )
    glDeleteProgram ( userData->programObject );
 }
 
-int StartStencilTest(int argc, char *argv[])
+///
+// Handle keyboard input
+//
+void MultisampleKey ( ESContext *esContext, unsigned char key, int x, int y)
+{
+   switch ( key )
+   {
+   case 'm':
+      printf( "Saw an 'm'\n" );
+      break;
+
+   case 'a':
+      printf( "Saw an 'a'\n" );
+      break;
+
+   case '1':
+      printf( "Saw a '1'\n" );
+      break;
+
+   case 033: // ASCII Escape Key
+	   MultisampleShutDown( esContext );
+	   exit( 0 );
+	   break;
+   }
+}
+
+int StartMultiSample(int argc, char *argv[])
 {
    ESContext esContext;
    UserData  userData;
@@ -245,18 +273,17 @@ int StartStencilTest(int argc, char *argv[])
    esInitContext ( &esContext );
    esContext.userData = &userData;
 
-   esCreateWindow2 ( &esContext, "Stencil Test", WINDOW_ICON, 320, 240,
-                    ES_WINDOW_RGB | ES_WINDOW_DEPTH | ES_WINDOW_STENCIL );
-					//  ES_WINDOW_RGB); // This makes the same as the multisample.c
+   esCreateWindow2 ( &esContext, "Multi-sampling", WINDOW_ICON, 320, 240, ES_WINDOW_RGB );
    
-   if ( !StencilTestInit ( &esContext ) )
+   if ( !MultisampleInit ( &esContext ) )
       return GAME_ERROR_INIT_FAILED;
 
-   esRegisterDrawFunc ( &esContext, StencilTestDraw );
-   
+   esRegisterDrawFunc ( &esContext, MultisampleDraw );
+   esRegisterKeyFunc( &esContext, MultisampleKey );
+
    esMainLoop ( &esContext );
 
-   StencilTestShutDown ( &esContext );
+   MultisampleShutDown ( &esContext );
 
-   return GAME_ENDED_SUCCESS;
+   return GAME_ENDED_SUCCESS; 
 }

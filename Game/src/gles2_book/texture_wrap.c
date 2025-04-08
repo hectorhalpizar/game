@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "esUtil.h"
 #include "texture_wrap.h"
-#include "config.h"
+#include "../config.h"
 
 typedef struct
 {

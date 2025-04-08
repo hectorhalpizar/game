@@ -2,7 +2,7 @@
 #include "esUtil.h"
 #include "simple_vertex_shader.h"
 #include "simple_vertex_shader_shaders.h"
-#include "config.h"
+#include "../config.h"
 
 typedef struct
 {

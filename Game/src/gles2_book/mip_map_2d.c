@@ -2,7 +2,7 @@
 #include "esUtil.h"
 #include "mip_map_2d.h"
 #include "mip_map_2d_shaders.h"
-#include "config.h"
+#include "../config.h"
 
 typedef struct
 {

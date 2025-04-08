@@ -2,7 +2,7 @@
 #include "esUtil.h"
 #include "textured_square.h"
 #include "textured_square_shaders.h"
-#include "config.h"
+#include "../config.h"
 
 typedef struct
 {

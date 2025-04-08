@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "esUtil.h"
 #include "simple_texture_cubemap.h"
-#include "config.h"
+#include "../config.h"
 
 typedef struct
 {
