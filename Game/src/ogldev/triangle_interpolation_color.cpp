@@ -7,7 +7,6 @@
 #include "triangle_interpolation_color_shaders.h"
 #include "../config.h"
 #include "esUtil.h"
-#include "../api/game_math.h"
 
 // Definition of the class
 class TriangleInterpolation {

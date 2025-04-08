@@ -7,7 +7,6 @@
 #include "triangle_translation_shaders.h"
 #include "../config.h"
 #include "esUtil.h"
-#include "../api/game_math.h"
 #include "transformation.h"
 
 // Definition of the class

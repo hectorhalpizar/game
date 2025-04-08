@@ -7,7 +7,6 @@
 #include "triangle_rotation_shaders.h"
 #include "../config.h"
 #include "esUtil.h"
-#include "../api/game_math.h"
 
 // Definition of the class
 class TriangleRotation {

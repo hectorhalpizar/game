@@ -9,7 +9,6 @@
 #include "perspective_projection_shaders.h"
 #include "../config.h"
 #include "esUtil.h"
-#include "../api/game_math.h"
 
 #include "Vertex.h"
 
