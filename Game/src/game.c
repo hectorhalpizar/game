@@ -16,6 +16,7 @@
 #include "ogldev/triangle_interpolation_color.hpp"
 #include "ogldev/triangle_index_draws.hpp"
 #include "ogldev/perspective_projection.hpp"
+#include "ogldev/perspective_camera.hpp"
 #include "config.h"
 
 #define AMOUNT_OF_DEMOS 17
@@ -132,6 +133,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, RUN_GAME_OGLDEV_PESPSPECTIVE_PROJECTION) == 0)
 	{
 		runGameDemo = RunOglDevGamePerspectiveProjection;
+	}// RunOglDevGamePerspectiveCamera
+	else if (strcmp(programToRun, RUN_GAME_OGLDEV_PESPSPECTIVE_CAMERA) == 0)
+	{
+		runGameDemo = RunOglDevGamePerspectiveCamera;
 	}
 
 	// Outcome of the selected runGameDemo value
