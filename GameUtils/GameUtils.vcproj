@@ -159,7 +159,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\matrix3d.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\matrix4d.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\transformation.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\vector3d.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\vector4d.cpp"
 				>
 			</File>
 		</Filter>
@@ -173,7 +189,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\inc\matrix3d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\inc\matrix4d.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\inc\transformation.h"
+				>
+			</File>
+			<File
+				RelativePath=".\inc\vector3d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\inc\vector4d.hpp"
 				>
 			</File>
 		</Filter>
