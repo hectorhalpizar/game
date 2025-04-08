@@ -170,7 +170,7 @@ private:
 		MultiplyMatrixAsArray(Translation, Rotation, World, size, size, size);
 
 		// Manipulate this values and you'll have a Camera working
-		GLfloat CameraPos[] = { 0.f,  0.f,  -3.85f };
+		GLfloat CameraPos[] = { 0.f,  0.f,  -10.25f };
 		GLfloat U[]         = { 1.f,  0.f,  0.f };
 		GLfloat V[]         = { 0.f,  1.f,  0.f };
 		GLfloat N[]         = { 0.f,  0.f,  1.f };
@@ -189,7 +189,8 @@ private:
 		float ar = (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT;
 
 		float NearZ = 1.0f;
-		float FarZ = 10.0f;
+		// Modified this values to see if 
+		float FarZ = 1000.0f;
 		// float FarZ = 0.5f;
 
 		float zRange = NearZ - FarZ;
