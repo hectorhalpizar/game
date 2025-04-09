@@ -11,7 +11,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "esUtil", "Common\esUtil.vcp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameUtils", "GameUtils\GameUtils.vcproj", "{95984783-99F1-4E60-B023-896954E1F6ED}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameUtilsTests", "GameUtilsTests\GameUtilsTests.vcproj", "{3CC50B0D-E384-4AF2-B99E-B88E197D58CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7EFD0CA0-DCD4-40B4-97E7-231D139E204A}"
+	ProjectSection(SolutionItems) = preProject
+		Game.vsmdi = Game.vsmdi
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Game.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
@@ -29,6 +40,10 @@ Global
 		{95984783-99F1-4E60-B023-896954E1F6ED}.Debug|Win32.Build.0 = Debug|Win32
 		{95984783-99F1-4E60-B023-896954E1F6ED}.Release|Win32.ActiveCfg = Release|Win32
 		{95984783-99F1-4E60-B023-896954E1F6ED}.Release|Win32.Build.0 = Release|Win32
+		{3CC50B0D-E384-4AF2-B99E-B88E197D58CC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3CC50B0D-E384-4AF2-B99E-B88E197D58CC}.Debug|Win32.Build.0 = Debug|Win32
+		{3CC50B0D-E384-4AF2-B99E-B88E197D58CC}.Release|Win32.ActiveCfg = Release|Win32
+		{3CC50B0D-E384-4AF2-B99E-B88E197D58CC}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
