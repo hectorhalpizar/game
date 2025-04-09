@@ -53,11 +53,10 @@ namespace GameUtilsTests
 		#pragma endregion 
 
 		[TestMethod]
-		void TestMethod1()
+		void TestSum()
 		{
-			//
-			// TODO: Add test logic	here
-			//
+			int resultado = 2 + 2;
+			Assert::AreEqual(4, resultado);
 		};
 	};
 }

@@ -214,7 +214,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\UnitTest1.cpp"
+				RelativePath=".\src\UnitTestExample.cpp"
 				>
 			</File>
 		</Filter>
@@ -246,10 +246,6 @@
 				>
 			</File>
 		</Filter>
-		<File
-			RelativePath=".\AuthoringTests.txt"
-			>
-		</File>
 	</Files>
 	<Globals>
 	</Globals>
