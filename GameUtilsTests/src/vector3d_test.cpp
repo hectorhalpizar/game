@@ -1,0 +1,173 @@
+#include "stdafx.h"
+
+#include "vector3d.hpp"
+
+using namespace System;
+using namespace System::Text;
+using namespace System::Collections::Generic;
+using namespace	Microsoft::VisualStudio::TestTools::UnitTesting;
+
+namespace GameUtilsTests
+{
+	[TestClass]
+	public ref class Vector3DTest
+	{
+	private:
+		TestContext^ testContextInstance;
+
+	public: 
+		/// <summary>
+		///Gets or sets the test context which provides
+		///information about and functionality for the current test run.
+		///</summary>
+		property Microsoft::VisualStudio::TestTools::UnitTesting::TestContext^ TestContext
+		{
+			Microsoft::VisualStudio::TestTools::UnitTesting::TestContext^ get()
+			{
+				return testContextInstance;
+			}
+			System::Void set(Microsoft::VisualStudio::TestTools::UnitTesting::TestContext^ value)
+			{
+				testContextInstance = value;
+			}
+		};
+
+		#pragma region Additional test attributes
+		//
+		//You can use the following additional attributes as you write your tests:
+		//
+		//Use ClassInitialize to run code before running the first test in the class
+		//[ClassInitialize()]
+		//static void MyClassInitialize(TestContext^ testContext) {};
+		//
+		//Use ClassCleanup to run code after all tests in a class have run
+		//[ClassCleanup()]
+		//static void MyClassCleanup() {};
+		//
+		//Use TestInitialize to run code before running each test
+		//[TestInitialize()]
+		//void MyTestInitialize() {};
+		//
+		//Use TestCleanup to run code after each test has run
+		//[TestCleanup()]
+		//void MyTestCleanup() {};
+		//
+		#pragma endregion 
+
+		[TestMethod]
+		void test_Vector3D_Default_constructor()
+		{
+			// Arrange & Act
+			const Vector3D testInstance;
+			
+			// Assert
+			Assert::AreEqual(0.f, testInstance[0]);
+			Assert::AreEqual(0.f, testInstance[1]);
+			Assert::AreEqual(0.f, testInstance[2]);
+		};
+
+		[TestMethod]
+		void test_Vector3D_brackets_operator()
+		{
+			// Arrange & Act
+			Vector3D testInstance = Vector3D(1, 2, 3);
+			
+			// Assert
+			Assert::AreEqual(1.f, testInstance[0]);
+			Assert::AreEqual(2.f, testInstance[1]);
+			Assert::AreEqual(3.f, testInstance[2]);
+		};
+
+		[TestMethod]
+		void test_Vector3D_const_brackets_operator()
+		{
+			// Arrange & Act
+			const Vector3D testInstance = Vector3D(1, 2, 3);
+			
+			// Assert
+			Assert::AreEqual(1.f, testInstance[0]);
+			Assert::AreEqual(2.f, testInstance[1]);
+			Assert::AreEqual(3.f, testInstance[2]);
+		};
+
+		[TestMethod]
+		void test_Vector3D_multiply_composed_asignation_operator_with_a_common_float()
+		{
+			// Arrange
+			Vector3D testInstance = Vector3D(1, 2, 3);
+			float commonFloat = 2.f;
+			
+			// Act
+			testInstance *= 2.f;
+			
+			// Assert
+			Assert::AreEqual(2.f, testInstance.x);
+			Assert::AreEqual(4.f, testInstance.y);
+			Assert::AreEqual(6.f, testInstance.z);
+		};
+
+		[TestMethod]
+		void test_Vector3D_division_composed_asignation_operator_with_a_common_float()
+		{
+			// Arrange
+			Vector3D testInstance = Vector3D(2, 4, 6);
+			float commonFloat = 2.f;
+			
+			// Act
+			testInstance /= 2.f;
+			
+			// Assert
+			Assert::AreEqual(1.f, testInstance.x);
+			Assert::AreEqual(2.f, testInstance.y);
+			Assert::AreEqual(3.f, testInstance.z);
+		};
+
+		[TestMethod]
+		void test_Vector3D_addition_composed_asignation_operator_with_other_Vector3D()
+		{
+			// Arrange
+			Vector3D testInstance = Vector3D(1, 2, 3);
+			Vector3D otherVector3D = Vector3D(1, 2, 3);
+			
+			// Act
+			testInstance += otherVector3D;
+			
+			// Assert
+			Assert::AreEqual(2.f, testInstance.x);
+			Assert::AreEqual(4.f, testInstance.y);
+			Assert::AreEqual(6.f, testInstance.z);
+		};
+
+		[TestMethod]
+		void test_Vector3D_substraction_composed_asignation_operator_with_other_Vector3D()
+		{
+			// Arrange
+			Vector3D testInstance = Vector3D(1, 2, 3);
+			Vector3D otherVector3D = Vector3D(1, 2, 3);
+			
+			// Act
+			testInstance -= otherVector3D;
+			
+			// Assert
+			Assert::AreEqual(0.f, testInstance.x);
+			Assert::AreEqual(0.f, testInstance.y);
+			Assert::AreEqual(0.f, testInstance.z);
+		};
+
+		[TestMethod]
+		void test_Vector3D_division_operator_with_other_Vector3D()
+		{
+			// Arrange
+			const Vector3D aVector3D = Vector3D(2, 4, 6);
+			float aFloatValue = 2.f;
+			
+			// Act
+			Vector3D result = aVector3D / aFloatValue;
+			
+			// Assert
+			Assert::AreEqual(1.f, result.x);
+			Assert::AreEqual(2.f, result.y);
+			Assert::AreEqual(3.f, result.z);
+		};
+	};
+}
