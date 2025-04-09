@@ -12,6 +12,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameUtils", "GameUtils\GameUtils.vcproj", "{95984783-99F1-4E60-B023-896954E1F6ED}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameUtilsTests", "GameUtilsTests\GameUtilsTests.vcproj", "{3CC50B0D-E384-4AF2-B99E-B88E197D58CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{95984783-99F1-4E60-B023-896954E1F6ED} = {95984783-99F1-4E60-B023-896954E1F6ED}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7EFD0CA0-DCD4-40B4-97E7-231D139E204A}"
 	ProjectSection(SolutionItems) = preProject
