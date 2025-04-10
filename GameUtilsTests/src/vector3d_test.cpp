@@ -16,6 +16,7 @@ namespace GameUtilsTests
 	{
 	private:
 		TestContext^ testContextInstance;
+		#define ASSERT_ERROR_MESSAGE "Result is {0} and expected is {1}"
 
 	public: 
 		/// <summary>
