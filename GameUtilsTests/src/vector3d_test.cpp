@@ -250,6 +250,70 @@ namespace GameUtilsTests
 			Assert::AreEqual(3.f, result.z);
 		};
 
+		[TestMethod]
+		void test_Vector3D_Dot_with_other_Vector3D()
+		{
+			// Arrange
+			const Vector3D aVector3D = Vector3D(2.5f, 4.5f, 6.5f);
+			const Vector3D otherVector3D = Vector3D(1.5f, 2.5f, 3.5f);
+			
+			// Act
+			float result = Dot(aVector3D, otherVector3D);
+			
+			// Assert
+			Assert::AreEqual(37.75f, result);
+		};
+
+		[TestMethod]
+		void test_Vector3D_Cross_with_other_Vector3D()
+		{
+			// Arrange
+			const Vector3D aVector3D = Vector3D(2.5f, 4.5f, 6.5f);
+			const Vector3D otherVector3D = Vector3D(1.5f, 2.5f, 3.5f);
+			
+			// Act
+			Vector3D result = Cross(aVector3D, otherVector3D);
+			
+			// Assert
+			Assert::AreEqual(-0.5f, result.x);
+			Assert::AreEqual(1.f, result.y);
+			Assert::AreEqual(-0.5f, result.z);
+		};
+
+		[TestMethod]
+		void test_Vector3D_Project_with_other_Vector3D()
+		{
+			// Arrange
+			const Vector3D aVector3D = Vector3D(2.5f, 4.5f, 6.5f);
+			const Vector3D otherVector3D = Vector3D(1.5f, 2.5f, 3.5f);
+			
+			// Act
+			Vector3D result = Project(aVector3D, otherVector3D);
+			const Vector3D expected = Vector3D(2.728916f, 4.548193f, 6.36747f);
+			
+			// Assert
+			Assert::IsTrue(floatsAreEqual(result.x, expected.x), ASSERT_ERROR_MESSAGE, result.x, expected.x);
+			Assert::IsTrue(floatsAreEqual(result.y, expected.y), ASSERT_ERROR_MESSAGE, result.y, expected.y);
+			Assert::IsTrue(floatsAreEqual(result.z, expected.z), ASSERT_ERROR_MESSAGE, result.y, expected.y);
+		};
+
+		[TestMethod]
+		void test_Vector3D_Reject_with_other_Vector3D()
+		{
+			// Arrange
+			const Vector3D aVector3D = Vector3D(2.5f, 4.5f, 6.5f);
+			const Vector3D otherVector3D = Vector3D(1.5f, 2.5f, 3.5f);
+			
+			// Act
+			Vector3D result = Reject(aVector3D, otherVector3D);
+			const Vector3D expected = Vector3D(-0.2289157f, -0.04819298f, 0.1325297f);
+			
+			// Assert
+			Assert::IsTrue(floatsAreEqual(result.x, expected.x), ASSERT_ERROR_MESSAGE, result.x, expected.x);
+			Assert::IsTrue(floatsAreEqual(result.y, expected.y), ASSERT_ERROR_MESSAGE, result.y, expected.y);
+			Assert::IsTrue(floatsAreEqual(result.z, expected.z), ASSERT_ERROR_MESSAGE, result.z, expected.z);
+		};
+
 		bool floatsAreEqual(double a, double b) {
 			double epsilon = 1e-6;
 			return std::fabs(a - b) < epsilon;
