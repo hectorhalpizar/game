@@ -27,8 +27,6 @@ private:
 	void init(float x, float y, float z);
 };
 
-Vector3D operator *(const Vector3D& v, float s);
-
 inline Vector3D operator /(const Vector3D& v, float s)
 {
 	s = 1.0F / s;
