@@ -2,12 +2,14 @@
 
 #include <cmath>
 
+#include "TestTools/AssertExtention.hpp"
 #include "vector3d.hpp"
 
 using namespace System;
 using namespace System::Text;
 using namespace System::Collections::Generic;
 using namespace	Microsoft::VisualStudio::TestTools::UnitTesting;
+using namespace GameUtills::UnitTesting;
 
 namespace GameUtilsTests
 {
@@ -213,9 +215,9 @@ namespace GameUtilsTests
 			Vector3D expected(0.2672612f, 0.5345225f, 0.8017837f);
 			
 			// Assert
-			Assert::IsTrue(floatsAreEqual(result.x, expected.x));
-			Assert::IsTrue(floatsAreEqual(result.y, expected.y));
-			Assert::IsTrue(floatsAreEqual(result.z, expected.z));
+			AssertExtension::AreEqual(expected.x, result.x);
+			AssertExtension::AreEqual(expected.y, result.y);
+			AssertExtension::AreEqual(expected.z, result.z);
 		};
 
 		[TestMethod]
@@ -292,9 +294,9 @@ namespace GameUtilsTests
 			const Vector3D expected = Vector3D(2.728916f, 4.548193f, 6.36747f);
 			
 			// Assert
-			Assert::IsTrue(floatsAreEqual(result.x, expected.x), ASSERT_ERROR_MESSAGE, result.x, expected.x);
-			Assert::IsTrue(floatsAreEqual(result.y, expected.y), ASSERT_ERROR_MESSAGE, result.y, expected.y);
-			Assert::IsTrue(floatsAreEqual(result.z, expected.z), ASSERT_ERROR_MESSAGE, result.y, expected.y);
+			AssertExtension::AreEqual(expected.x, result.x);
+			AssertExtension::AreEqual(expected.y, result.y);
+			AssertExtension::AreEqual(expected.z, result.z);
 		};
 
 		[TestMethod]
@@ -309,9 +311,9 @@ namespace GameUtilsTests
 			const Vector3D expected = Vector3D(-0.2289157f, -0.04819298f, 0.1325297f);
 			
 			// Assert
-			Assert::IsTrue(floatsAreEqual(result.x, expected.x), ASSERT_ERROR_MESSAGE, result.x, expected.x);
-			Assert::IsTrue(floatsAreEqual(result.y, expected.y), ASSERT_ERROR_MESSAGE, result.y, expected.y);
-			Assert::IsTrue(floatsAreEqual(result.z, expected.z), ASSERT_ERROR_MESSAGE, result.z, expected.z);
+			AssertExtension::AreEqual(expected.x, result.x);
+			AssertExtension::AreEqual(expected.y, result.y);
+			AssertExtension::AreEqual(expected.z, result.z);
 		};
 
 		bool floatsAreEqual(double a, double b) {
