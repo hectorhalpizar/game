@@ -241,7 +241,7 @@ namespace GameUtilsTests
 			const Vector3D otherVector3D = Vector3D(1, 2, 3);
 			
 			// Act
-			Vector3D result = aVector3D + otherVector3D;
+			Vector3D result = aVector3D - otherVector3D;
 			
 			// Assert
 			Assert::AreEqual(1.f, result.x);
