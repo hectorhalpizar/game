@@ -1,13 +1,12 @@
 #include "vector4d.hpp"
 
-Vector4D::Vector4D() { };
+Vector4D::Vector4D() {
+	init(0.f, 0.f, 0.f, 0.f);
+};
 
-Vector4D::Vector4D(float a, float b, float c, float d)
+Vector4D::Vector4D(float x, float y, float z, float w)
 {
-	x = a;
-	y = b;
-	z = c;
-	w = d;
+	init(x, y, z, w);
 }
 
 float& Vector4D::operator [](int i)
@@ -55,6 +54,14 @@ Vector4D& Vector4D::operator -=(const Vector4D& v)
 	z -= v.z;
 	w -= v.w;
 	return (*this);
+}
+
+void Vector4D::init(float a, float b, float c, float d)
+{
+	x = a;
+	y = b;
+	z = c;
+	w = d;
 }
 
 

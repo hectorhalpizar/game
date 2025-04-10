@@ -20,6 +20,9 @@ struct Vector4D
 	Vector4D& operator +=(const Vector4D& v);
 
 	Vector4D& operator -=(const Vector4D& v);
+
+private:
+	void init(float a, float b, float c, float d);
 };
 
 #endif // __GAME_UTILS_VECTOR4D_HPP__
