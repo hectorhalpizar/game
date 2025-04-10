@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include <cmath>
+
 #include "vector3d.hpp"
 
 using namespace System;
@@ -169,5 +171,87 @@ namespace GameUtilsTests
 			Assert::AreEqual(2.f, result.y);
 			Assert::AreEqual(3.f, result.z);
 		};
+
+		[TestMethod]
+		void test_Vector3D_multiplication_operator_with_other_Vector3D()
+		{
+			// Arrange
+			const Vector3D aVector3D = Vector3D(2, 4, 6);
+			float aFloatValue = 2.f;
+			
+			// Act
+			Vector3D result = aVector3D * aFloatValue;
+			
+			// Assert
+			Assert::AreEqual(4.f, result.x);
+			Assert::AreEqual(8.f, result.y);
+			Assert::AreEqual(12.f, result.z);
+		};
+
+		[TestMethod]
+		void test_Vector3D_magnitud_with_other_Vector3D()
+		{
+			// Arrange
+			const Vector3D aVector3D = Vector3D(2, 4, 6);
+			
+			// Act
+			float result = Magnitude(aVector3D);
+			
+			// Assert
+			Assert::AreEqual(7.483315f, result);
+		};
+
+		[TestMethod]
+		void test_Vector3D_normalize_with_other_Vector3D()
+		{
+			// Arrange
+			const Vector3D aVector3D = Vector3D(2, 4, 6);
+			
+			// Act
+			Vector3D result = Normalize(aVector3D);
+			Vector3D expected(0.2672612f, 0.5345225f, 0.8017837f);
+			
+			// Assert
+			Assert::IsTrue(floatsAreEqual(result.x, expected.x));
+			Assert::IsTrue(floatsAreEqual(result.y, expected.y));
+			Assert::IsTrue(floatsAreEqual(result.z, expected.z));
+		};
+
+		[TestMethod]
+		void test_Vector3D_addition_with_other_Vector3D()
+		{
+			// Arrange
+			Vector3D aVector3D = Vector3D(2, 4, 6);
+			const Vector3D otherVector3D = Vector3D(1, 2, 3);
+			
+			// Act
+			Vector3D result = aVector3D + otherVector3D;
+			
+			// Assert
+			Assert::AreEqual(3.f, result.x);
+			Assert::AreEqual(6.f, result.y);
+			Assert::AreEqual(9.f, result.z);
+		};
+
+		[TestMethod]
+		void test_Vector3D_substraction_with_other_Vector3D()
+		{
+			// Arrange
+			Vector3D aVector3D = Vector3D(2, 4, 6);
+			const Vector3D otherVector3D = Vector3D(1, 2, 3);
+			
+			// Act
+			Vector3D result = aVector3D + otherVector3D;
+			
+			// Assert
+			Assert::AreEqual(1.f, result.x);
+			Assert::AreEqual(2.f, result.y);
+			Assert::AreEqual(3.f, result.z);
+		};
+
+		bool floatsAreEqual(double a, double b) {
+			double epsilon = 1e-7;
+			return std::fabs(a - b) < epsilon;
+		}
 	};
 }
