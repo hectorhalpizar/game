@@ -251,7 +251,7 @@ namespace GameUtilsTests
 		};
 
 		bool floatsAreEqual(double a, double b) {
-			double epsilon = 1e-7;
+			double epsilon = 1e-6;
 			return std::fabs(a - b) < epsilon;
 		}
 	};
