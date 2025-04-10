@@ -315,10 +315,5 @@ namespace GameUtilsTests
 			AssertExtension::AreEqual(expected.y, result.y);
 			AssertExtension::AreEqual(expected.z, result.z);
 		};
-
-		bool floatsAreEqual(double a, double b) {
-			double epsilon = 1e-6;
-			return std::fabs(a - b) < epsilon;
-		}
 	};
 }
