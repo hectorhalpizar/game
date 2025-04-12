@@ -222,6 +222,10 @@
 				RelativePath=".\src\vector3d_test.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\src\vector4d_test.cpp"
+				>
+			</File>
 			<Filter
 				Name="TestTools"
 				>
