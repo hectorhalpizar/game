@@ -195,6 +195,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\matrix3d_test.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
