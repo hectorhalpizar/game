@@ -26,6 +26,12 @@ struct Matrix3D
 		Vector3D& operator [](int j);
 
 		const Vector3D& operator [](int j) const;
+
+	private:
+		void init(float n00, float n01, float n02,
+		     float n10, float n11, float n12,
+		     float n20, float n21, float n22);
+
 };
 
 
