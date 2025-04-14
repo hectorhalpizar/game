@@ -154,5 +154,28 @@ namespace GameUtilsTests
 			Assert::AreEqual(8.f, testInstance[2][1]);
 			Assert::AreEqual(9.f, testInstance[2][2]);
 		};
+
+		[TestMethod]
+		void test_Matrix3D_Inverse()
+		{
+			// Arrange
+			Matrix3D testInstance = Matrix3D(Vector3D( .10f, -.155f,  .100f),
+											 Vector3D(-.15f,  .125f, -.095f),
+											 Vector3D( .15f, -.100f,  .110f));
+
+			// Act
+			Matrix3D result = Inverse(testInstance);
+
+			// Assert
+			AssertExtension::AreEqual(-14.225936f, result(0,0));
+			AssertExtension::AreEqual(- 7.531379f, result(0,1));
+			AssertExtension::AreEqual( 12.552297f, result(0,2));
+			AssertExtension::AreEqual(-23.598320f, result(1,0));
+			AssertExtension::AreEqual( 13.389120f, result(1,1));
+			AssertExtension::AreEqual( 44.351455f, result(1,2));
+			AssertExtension::AreEqual(- 7.447696f, result(2,0));
+			AssertExtension::AreEqual( 18.410039f, result(2,1));
+			AssertExtension::AreEqual( 35.983261f, result(2,2));
+		}
 	};	
 }
