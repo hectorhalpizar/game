@@ -195,5 +195,36 @@ namespace GameUtilsTests
 			Assert::AreEqual(15.f, testInstance[3][2]);
 			Assert::AreEqual(16.f, testInstance[3][3]);
 		};
+
+		[TestMethod]
+		void test_Matrix4D_Inverse()
+		{
+			// Arrange
+			Matrix4D testInstance = Matrix4D(Vector4D( .10f, -.155f,  .100f, -.085f),
+											 Vector4D(-.15f,  .125f, -.095f,  .095f),
+											 Vector4D( .15f, -.100f,  .110f,  .120f),
+											 Vector4D( .20f,  .150f,  .150f, -.160f));
+
+			// Act
+			Matrix4D result = Inverse(testInstance);
+
+			// Assert
+			AssertExtension::AreEqual(-16.890262f, result(0,0));
+			AssertExtension::AreEqual(- 1.831208f, result(0,1));
+			AssertExtension::AreEqual( 22.876266f, result(0,2));
+			AssertExtension::AreEqual(- 1.383086f, result(0,3));
+			AssertExtension::AreEqual(-18.578735f, result(1,0));
+			AssertExtension::AreEqual(  2.649995f, result(1,1));
+			AssertExtension::AreEqual( 24.901105f, result(1,2));
+			AssertExtension::AreEqual(  2.605737f, result(1,3));
+			AssertExtension::AreEqual(  1.046167f, result(2,0));
+			AssertExtension::AreEqual(  0.237890f, result(2,1));
+			AssertExtension::AreEqual(  3.070454f, result(2,2));
+			AssertExtension::AreEqual(  4.409283f, result(2,3));
+			AssertExtension::AreEqual(- 1.273546f, result(3,0));
+			AssertExtension::AreEqual(  2.724682f, result(3,1));
+			AssertExtension::AreEqual(  4.934855f, result(3,2));
+			AssertExtension::AreEqual(- 0.661115f, result(3,3));
+		}
 	};	
 }
