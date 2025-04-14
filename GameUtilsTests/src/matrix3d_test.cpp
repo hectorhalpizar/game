@@ -339,5 +339,26 @@ namespace GameUtilsTests
 			AssertExtension::AreEqual(2.3420703f, result(2,1));
 			AssertExtension::AreEqual(1.f,		  result(2,2));
 		}
+
+		[TestMethod]
+		void test_Matrix3D_MakeReflection()
+		{
+			// Arrange
+			Vector3D aVector = Vector3D(-1.f, -1.f, -1.f);
+
+			// Act
+			Matrix3D result = MakeReflection(aVector);
+
+			// Assert
+			AssertExtension::AreEqual(-1.f,	result(0,0));
+			AssertExtension::AreEqual(-2.f, result(0,1));
+			AssertExtension::AreEqual(-2.f, result(0,2));
+			AssertExtension::AreEqual(-2.f, result(1,0));
+			AssertExtension::AreEqual(-1.f,	result(1,1));
+			AssertExtension::AreEqual(-2.f, result(1,2));
+			AssertExtension::AreEqual(-2.f, result(2,0));
+			AssertExtension::AreEqual(-2.f, result(2,1));
+			AssertExtension::AreEqual(-1.f,	result(2,2));
+		}
 	};	
 }
