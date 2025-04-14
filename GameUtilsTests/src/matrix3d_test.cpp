@@ -223,5 +223,20 @@ namespace GameUtilsTests
 			AssertExtension::AreEqual(-0.0296250f, result.y);
 			AssertExtension::AreEqual( 0.0392750f, result.z);
 		}
+
+		[TestMethod]
+		void test_Matrix3D_Determinant()
+		{
+			// Arrange
+			Matrix3D aMatrix3D = Matrix3D(Vector3D( .10f, -.155f,  .100f),
+										  Vector3D(-.15f,  .125f, -.095f),
+										  Vector3D( .15f, -.100f,  .110f));
+
+			// Act
+			float result = Determinant(aMatrix3D);
+
+			// Assert
+			AssertExtension::AreEqual(-0.0002987f, result);
+		}
 	};	
 }
