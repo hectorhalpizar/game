@@ -36,5 +36,7 @@ struct Matrix3D
 
 Matrix3D Inverse(const Matrix3D& M);
 
+Matrix3D operator *(const Matrix3D& A, const Matrix3D& B);
+
 
 #endif // __GAME_UTILS_MATRIX3D_HPP__

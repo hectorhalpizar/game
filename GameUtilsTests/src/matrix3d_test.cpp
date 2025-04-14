@@ -177,5 +177,32 @@ namespace GameUtilsTests
 			AssertExtension::AreEqual( 18.410039f, result(2,1));
 			AssertExtension::AreEqual( 35.983261f, result(2,2));
 		}
+
+		[TestMethod]
+		void test_Matrix3D_Multiplication_Operator_with_other_Matrix3D()
+		{
+			// Arrange
+			Matrix3D aMatrix3D = Matrix3D(Vector3D( .10f, -.155f,  .100f),
+										  Vector3D(-.15f,  .125f, -.095f),
+										  Vector3D( .15f, -.100f,  .110f));
+
+			Matrix3D otherMatrix3D = Matrix3D(Vector3D( .30f,  .655f,  .650f),
+											  Vector3D(-.45f, -.125f,  .475f),
+											  Vector3D(-.10f, -.870f, -.310f));
+
+			// Act
+			Matrix3D result = aMatrix3D * otherMatrix3D;
+
+			// Assert
+			AssertExtension::AreEqual( 0.0292500f, result(0,0));
+			AssertExtension::AreEqual( 0.0450000f, result(0,1));
+			AssertExtension::AreEqual( 0.0740000f, result(0,2));
+			AssertExtension::AreEqual(-0.0296250f, result(1,0));
+			AssertExtension::AreEqual( 0.0066249f, result(1,1));
+			AssertExtension::AreEqual(-0.0622499f, result(1,2));
+			AssertExtension::AreEqual( 0.0392750f, result(2,0));
+			AssertExtension::AreEqual( 0.0191249f, result(2,1));
+			AssertExtension::AreEqual( 0.0385500f, result(2,2));
+		}
 	};	
 }
