@@ -34,5 +34,7 @@ struct Matrix3D
 
 };
 
+Matrix3D Inverse(const Matrix3D& M);
+
 
 #endif // __GAME_UTILS_MATRIX3D_HPP__
