@@ -52,4 +52,6 @@ Matrix3D MakeRotation(float t, const Vector3D& a);
 
 Matrix3D MakeReflection(const Vector3D& a);
 
+Matrix3D MakeInvolution(const Vector3D& a);
+
 #endif // __GAME_UTILS_MATRIX3D_HPP__
