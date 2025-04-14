@@ -1,5 +1,6 @@
 #include "matrix4d.hpp"
 #include "vector4d.hpp"
+#include "vector3d.hpp"
 
 Matrix4D::Matrix4D()
 {
@@ -73,4 +74,38 @@ void Matrix4D::init(float n00, float n01, float n02, float n03,
 	n[1][0] = n01; n[1][1] = n11; n[1][2] = n21; n[1][3] = n31;
 	n[2][0] = n02; n[2][1] = n12; n[2][2] = n22; n[2][3] = n32;
 	n[3][0] = n03; n[3][1] = n13; n[3][2] = n23; n[3][3] = n33;
+}
+
+Matrix4D Inverse(const Matrix4D& M)
+{
+	const Vector3D& a = reinterpret_cast<const Vector3D&>(M[0]);
+	const Vector3D& b = reinterpret_cast<const Vector3D&>(M[1]);
+	const Vector3D& c = reinterpret_cast<const Vector3D&>(M[2]);
+	const Vector3D& d = reinterpret_cast<const Vector3D&>(M[3]);
+
+	const float& x = M(3,0);
+	const float& y = M(3,1);
+	const float& z = M(3,2);
+	const float& w = M(3,3);
+
+	Vector3D s = Cross(a, b);
+	Vector3D t = Cross(c, d);
+	Vector3D u = a * y - b * x;
+	Vector3D v = c * w - d * z;
+
+	float invDet = 1.0F / (Dot(s, v) + Dot(t, u));
+	s *= invDet;
+	t *= invDet;
+	u *= invDet;
+	v *= invDet;
+
+	Vector3D r0 = Cross(b, v) + t * y;
+	Vector3D r1 = Cross(v, a) - t * x;
+	Vector3D r2 = Cross(d, u) + s * w;
+	Vector3D r3 = Cross(u, c) - s * z;
+
+	return (Matrix4D(r0.x, r0.y, r0.z, -Dot(b, t),
+	                 r1.x, r1.y, r1.z,  Dot(a, t),
+	                 r2.x, r2.y, r2.z, -Dot(d, s),
+	                 r3.x, r3.y, r3.z,  Dot(c, s)));
 }

@@ -35,4 +35,6 @@ struct Matrix4D
 				  float n30, float n31, float n32, float n33);
 };
 
+Matrix4D Inverse(const Matrix4D& M);
+
 #endif // __GAME_UTILS_MATRIX4D_HPP__
