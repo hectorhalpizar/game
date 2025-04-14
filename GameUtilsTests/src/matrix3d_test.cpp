@@ -424,5 +424,28 @@ namespace GameUtilsTests
 			AssertExtension::AreEqual(-2.f, result(2,1));
 			AssertExtension::AreEqual(-1.f, result(2,2));
 		}
+
+		[TestMethod]
+		void test_Matrix3D_MakeSkew()
+		{
+			// Arrange
+			float t = 3.f;
+			Vector3D aVector = Vector3D(-1.f,  2.f, -1.f);
+			Vector3D bVector = Vector3D( 2.f, -1.f,  2.f);
+
+			// Act
+			Matrix3D result = MakeSkew(t, aVector, bVector);
+
+			// Assert
+			AssertExtension::AreEqual( 1.285093f, result(0,0));
+			AssertExtension::AreEqual(-0.142546f, result(0,1));
+			AssertExtension::AreEqual( 0.285093f, result(0,2));
+			AssertExtension::AreEqual(-0.570186f, result(1,0));
+			AssertExtension::AreEqual( 1.285093f, result(1,1));
+			AssertExtension::AreEqual(-0.570186f, result(1,2));
+			AssertExtension::AreEqual( 0.285093f, result(2,0));
+			AssertExtension::AreEqual(-0.142546f, result(2,1));
+			AssertExtension::AreEqual( 1.285093f, result(2,2));
+		}
 	};	
 }

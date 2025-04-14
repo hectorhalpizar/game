@@ -58,4 +58,6 @@ Matrix3D MakeScale(float sx, float sy, float sz);
 
 Matrix3D MakeScale(float s, const Vector3D& a);
 
+Matrix3D MakeSkew(float t, const Vector3D& a, const Vector3D& b);
+
 #endif // __GAME_UTILS_MATRIX3D_HPP__
