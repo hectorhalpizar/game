@@ -54,4 +54,8 @@ Matrix3D MakeReflection(const Vector3D& a);
 
 Matrix3D MakeInvolution(const Vector3D& a);
 
+Matrix3D MakeScale(float sx, float sy, float sz);
+
+Matrix3D MakeScale(float s, const Vector3D& a);
+
 #endif // __GAME_UTILS_MATRIX3D_HPP__

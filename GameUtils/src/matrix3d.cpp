@@ -185,3 +185,23 @@ Matrix3D MakeInvolution(const Vector3D& a)
 	                 axay, y * a.y - 1.0F, ayaz,
 	                 axaz, ayaz, z * a.z - 1.0F));
 }
+
+Matrix3D MakeScale(float sx, float sy, float sz)
+{
+	return (Matrix3D(sx, 0.0F, 0.0F, 0.0F, sy, 0.0F, 0.0F, 0.0F, sz));
+}
+
+Matrix3D MakeScale(float s, const Vector3D& a)
+{
+	s -= 1.0F;
+	float x = a.x * s;
+	float y = a.y * s;
+	float z = a.z * s;
+	float axay = x * a.y;
+	float axaz = x * a.z;
+	float ayaz = y * a.z;
+
+	return (Matrix3D(x * a.x + 1.0F, axay, axaz,
+	                 axay, y * a.y + 1.0F, ayaz,
+	                 axaz, ayaz, z * a.z + 1.0F));
+}

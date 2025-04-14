@@ -381,5 +381,48 @@ namespace GameUtilsTests
 			AssertExtension::AreEqual(2.f, result(2,1));
 			AssertExtension::AreEqual(1.f, result(2,2));
 		}
+
+		[TestMethod]
+		void test_Matrix3D_MakeScale_with_3_float_values()
+		{
+			// Arrange
+			float sx = -1.f; float sy = -1.f; float sz = -1.f;
+
+			// Act
+			Matrix3D result = MakeScale(sx, sy, sz);
+
+			// Assert
+			AssertExtension::AreEqual(-1.f, result(0,0));
+			AssertExtension::AreEqual( 0.f, result(0,1));
+			AssertExtension::AreEqual( 0.f, result(0,2));
+			AssertExtension::AreEqual( 0.f, result(1,0));
+			AssertExtension::AreEqual(-1.f, result(1,1));
+			AssertExtension::AreEqual( 0.f, result(1,2));
+			AssertExtension::AreEqual( 0.f, result(2,0));
+			AssertExtension::AreEqual( 0.f, result(2,1));
+			AssertExtension::AreEqual(-1.f, result(2,2));
+		}
+
+		[TestMethod]
+		void test_Matrix3D_MakeScale_with_a_Vector3D_and_the_scale()
+		{
+			// Arrange
+			float s = -1.f;
+			Vector3D aVector = Vector3D(-1.f, -1.f, -1.f);
+
+			// Act
+			Matrix3D result = MakeScale(s, aVector);
+
+			// Assert
+			AssertExtension::AreEqual(-1.f, result(0,0));
+			AssertExtension::AreEqual(-2.f, result(0,1));
+			AssertExtension::AreEqual(-2.f, result(0,2));
+			AssertExtension::AreEqual(-2.f, result(1,0));
+			AssertExtension::AreEqual(-1.f, result(1,1));
+			AssertExtension::AreEqual(-2.f, result(1,2));
+			AssertExtension::AreEqual(-2.f, result(2,0));
+			AssertExtension::AreEqual(-2.f, result(2,1));
+			AssertExtension::AreEqual(-1.f, result(2,2));
+		}
 	};	
 }
