@@ -42,5 +42,12 @@ Vector3D operator *(const Matrix3D& M, const Vector3D& v);
 
 float Determinant(const Matrix3D& M);
 
+Matrix3D MakeRotationX(float t);
+
+Matrix3D MakeRotationY(float t);
+
+Matrix3D MakeRotationZ(float t);
+
+Matrix3D MakeRotation(float t, const Vector3D& a);
 
 #endif // __GAME_UTILS_MATRIX3D_HPP__

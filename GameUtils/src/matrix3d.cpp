@@ -109,3 +109,51 @@ float Determinant(const Matrix3D& M)
 	      + M(0,2) * (M(1,0) * M(2,1) - M(1,1) * M(2,0)));
 }
 
+Matrix3D MakeRotationX(float t)
+{
+	float c = cos(t);
+	float s = sin(t);
+
+	return (Matrix3D(1.0F, 0.0F, 0.0F,
+	                 0.0F,  c,   -s,
+	                 0.0F,  s,    c  ));
+}
+
+Matrix3D MakeRotationY(float t)
+{
+	float c = cos(t);
+	float s = sin(t);
+
+	return (Matrix3D( c,   0.0F,  s,
+	                 0.0F, 1.0F, 0.0F,
+	                 -s,   0.0F,  c  ));
+}
+
+
+Matrix3D MakeRotationZ(float t)
+{
+	float c = cos(t);
+	float s = sin(t);
+
+	return (Matrix3D( c,   -s,   0.0F,
+	                  s,    c,   0.0F,
+	                 0.0F, 0.0F, 1.0F));
+}
+
+Matrix3D MakeRotation(float t, const Vector3D& a)
+{
+	float c = cos(t);
+	float s = sin(t);
+	float d = 1.0F - c;
+
+	float x = a.x * d;
+	float y = a.y * d;
+	float z = a.z * d;
+	float axay = x * a.y;
+	float axaz = x * a.z;
+	float ayaz = y * a.z;
+
+	return (Matrix3D(c + x * a.x, axay - s * a.z, axaz + s * a.y,
+	                 axay + s * a.z, c + y * a.y, ayaz - s * a.x,
+	                 axaz - s * a.y, ayaz + s * a.x, c + z * a.z));
+}

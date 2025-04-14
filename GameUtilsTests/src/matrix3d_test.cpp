@@ -238,5 +238,106 @@ namespace GameUtilsTests
 			// Assert
 			AssertExtension::AreEqual(-0.0002987f, result);
 		}
+
+		[TestMethod]
+		void test_Matrix3D_MakeRotationX()
+		{
+			// Arrange
+			Matrix3D aMatrix3D = Matrix3D(Vector3D( .10f, -.155f,  .100f),
+										  Vector3D(-.15f,  .125f, -.095f),
+										  Vector3D( .15f, -.100f,  .110f));
+
+			float rotationOnX = 90.f;
+
+			// Act
+			Matrix3D result = MakeRotationX(rotationOnX);
+
+			// Assert
+			AssertExtension::AreEqual( 1.f, result(0,0));
+			AssertExtension::AreEqual( 0.f, result(0,1));
+			AssertExtension::AreEqual( 0.f, result(0,2));
+			AssertExtension::AreEqual( 0.f, result(1,0));
+			AssertExtension::AreEqual(-0.4480736f, result(1,1));
+			AssertExtension::AreEqual(-0.8939966f, result(1,2));
+			AssertExtension::AreEqual( 0.f, result(2,0));
+			AssertExtension::AreEqual( 0.8939966f, result(2,1));
+			AssertExtension::AreEqual(-0.4480736f, result(2,2));
+		}
+
+		[TestMethod]
+		void test_Matrix3D_MakeRotationY()
+		{
+			// Arrange
+			Matrix3D aMatrix3D = Matrix3D(Vector3D( .10f, -.155f,  .100f),
+										  Vector3D(-.15f,  .125f, -.095f),
+										  Vector3D( .15f, -.100f,  .110f));
+
+			float rotationOnY = 90.f;
+
+			// Act
+			Matrix3D result = MakeRotationY(rotationOnY);
+
+			// Assert
+			AssertExtension::AreEqual(-0.4480736f, result(0,0));
+			AssertExtension::AreEqual( 0.f, result(0,1));
+			AssertExtension::AreEqual( 0.8939966f, result(0,2));
+			AssertExtension::AreEqual( 0.f, result(1,0));
+			AssertExtension::AreEqual( 1.f, result(1,1));
+			AssertExtension::AreEqual( 0.f, result(1,2));
+			AssertExtension::AreEqual(-0.8939966f, result(2,0));
+			AssertExtension::AreEqual( 0.f, result(2,1));
+			AssertExtension::AreEqual(-0.4480736f, result(2,2));
+		}
+
+		[TestMethod]
+		void test_Matrix3D_MakeRotationZ()
+		{
+			// Arrange
+			Matrix3D aMatrix3D = Matrix3D(Vector3D( .10f, -.155f,  .100f),
+										  Vector3D(-.15f,  .125f, -.095f),
+										  Vector3D( .15f, -.100f,  .110f));
+
+			float rotationOnZ = 90.f;
+
+			// Act
+			Matrix3D result = MakeRotationZ(rotationOnZ);
+
+			// Assert
+			AssertExtension::AreEqual(-0.4480736f, result(0,0));
+			AssertExtension::AreEqual(-0.8939966f, result(0,1));
+			AssertExtension::AreEqual( 0.f, result(0,2));
+			AssertExtension::AreEqual( 0.8939966f, result(1,0));
+			AssertExtension::AreEqual(-0.4480736f, result(1,1));
+			AssertExtension::AreEqual( 0.f, result(1,2));
+			AssertExtension::AreEqual( 0.f, result(2,0));
+			AssertExtension::AreEqual( 0.f, result(2,1));
+			AssertExtension::AreEqual( 1.f, result(2,2));
+		}
+
+		[TestMethod]
+		void test_Matrix3D_MakeRotation()
+		{
+			// Arrange
+			Matrix3D aMatrix3D = Matrix3D(Vector3D( .10f, -.155f,  .100f),
+										  Vector3D(-.15f,  .125f, -.095f),
+										  Vector3D( .15f, -.100f,  .110f));
+
+			Vector3D aVector = Vector3D(1.f, 1.f, 1.f);
+			float rotation = 90.f;
+
+			// Act
+			Matrix3D result = MakeRotation(rotation, aVector);
+
+			// Assert
+			AssertExtension::AreEqual(1.f,		  result(0,0));
+			AssertExtension::AreEqual(0.5540769f, result(0,1));
+			AssertExtension::AreEqual(2.3420703f, result(0,2));
+			AssertExtension::AreEqual(2.3420703f, result(1,0));
+			AssertExtension::AreEqual(1.f,		  result(1,1));
+			AssertExtension::AreEqual(0.5540769f, result(1,2));
+			AssertExtension::AreEqual(0.5540769f, result(2,0));
+			AssertExtension::AreEqual(2.3420703f, result(2,1));
+			AssertExtension::AreEqual(1.f,		  result(2,2));
+		}
 	};	
 }
