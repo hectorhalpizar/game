@@ -203,6 +203,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\point3d_test.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration

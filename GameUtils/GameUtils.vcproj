@@ -169,6 +169,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\point3d.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\transformation.c"
 				>
 			</File>
@@ -196,6 +200,10 @@
 			</File>
 			<File
 				RelativePath=".\inc\matrix4d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\inc\point3d.hpp"
 				>
 			</File>
 			<File
