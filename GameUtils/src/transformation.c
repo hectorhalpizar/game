@@ -2,6 +2,8 @@
 
 #include "transformation.h"
 
+void MultiplyMatrixAsArray(float *A, float *B, float *Result, int m, int n, int p);
+
 void rotateOnXRowMajor
 (
  	float *matrixVector,
@@ -227,4 +229,30 @@ void scaleCommon
 	matrixVector[4]  = 0.f; matrixVector[5]  =   y; matrixVector[6]  = 0.f; matrixVector[7]  = 0.f;
 	matrixVector[8]  = 0.f; matrixVector[9]  = 0.f; matrixVector[10] =   z; matrixVector[11] = 0.f;
 	matrixVector[12] = 0.f; matrixVector[13] = 0.f; matrixVector[14] = 0.f; matrixVector[15] = 1.f;
+}
+
+void MultiplyMatrixAsArray(float *A, float *B, float *Result, int m, int n, int p)
+{
+
+	int i = 0;
+	int j = 0;
+	int k = 0;
+
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < p; j++) {
+            Result[i * p + j] = 0;
+        }
+    }
+
+	i = 0;
+	j = 0;
+	k = 0;
+
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < p; j++) {
+            for (k = 0; k < n; k++) {
+                Result[i * p + j] += A[i * n + k] * B[k * p + j];
+            }
+        }
+    }
 }
