@@ -3,6 +3,7 @@
 
 #include "vector3d.hpp"
 #include "point3d.hpp"
+#include "matrix3d.hpp"
 
 void TransposeArray(float *matrix, int *rows, int *cols);
 
@@ -80,5 +81,31 @@ float DistPointLine(const Point3D& q, const Point3D& p, const Vector3D& v);
 
 float DistLineLine(const Point3D& p1, const Vector3D& v1,
                    const Point3D& p2, const Vector3D& v2);
+
+Matrix3D Inverse(const Matrix3D& M);
+
+Matrix3D operator *(const Matrix3D& A, const Matrix3D& B);
+
+Vector3D operator *(const Matrix3D& M, const Vector3D& v);
+
+float Determinant(const Matrix3D& M);
+
+Matrix3D MakeRotationX(float t);
+
+Matrix3D MakeRotationY(float t);
+
+Matrix3D MakeRotationZ(float t);
+
+Matrix3D MakeRotation(float t, const Vector3D& a);
+
+Matrix3D MakeReflection(const Vector3D& a);
+
+Matrix3D MakeInvolution(const Vector3D& a);
+
+Matrix3D MakeScale(float sx, float sy, float sz);
+
+Matrix3D MakeScale(float s, const Vector3D& a);
+
+Matrix3D MakeSkew(float t, const Vector3D& a, const Vector3D& b);
 
 #endif // __GAME_UTILS_MATH_H__
