@@ -2,6 +2,7 @@
 #define __GAME_UTILS_MATH_H__
 
 #include "vector3d.hpp"
+#include "point3d.hpp"
 
 void TransposeArray(float *matrix, int *rows, int *cols);
 
@@ -58,6 +59,21 @@ inline Vector3D Project(const Vector3D& a, const Vector3D& b)
 inline Vector3D Reject(const Vector3D& a, const Vector3D& b)
 {
 	return (a - b * (Dot(a, b) / Dot(b, b)));
+}
+
+inline Point3D operator +(const Point3D& a, const Vector3D& b)
+{
+	return (Point3D(a.x + b.x, a.y + b.y, a.z + b.z));
+}
+
+inline Point3D operator -(const Point3D& a, const Vector3D& b)
+{
+	return (Point3D(a.x - b.x, a.y - b.y, a.z - b.z));
+}
+
+inline Vector3D operator -(const Point3D& a, const Point3D& b)
+{
+	return (Vector3D(a.x - b.x, a.y - b.y, a.z - b.z));
 }
 
 #endif // __GAME_UTILS_MATH_H__
