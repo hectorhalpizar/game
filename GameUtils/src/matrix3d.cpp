@@ -1,4 +1,5 @@
 #include "matrix3d.hpp"
+#include "game_math.hpp"
 
 Matrix3D::Matrix3D() {
 	init(0.f, 0.f, 0.f,

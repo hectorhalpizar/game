@@ -1,6 +1,7 @@
 #include "matrix4d.hpp"
 #include "vector4d.hpp"
 #include "vector3d.hpp"
+#include "game_math.hpp"
 
 Matrix4D::Matrix4D()
 {
