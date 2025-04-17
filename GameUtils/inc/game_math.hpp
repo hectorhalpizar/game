@@ -76,4 +76,9 @@ inline Vector3D operator -(const Point3D& a, const Point3D& b)
 	return (Vector3D(a.x - b.x, a.y - b.y, a.z - b.z));
 }
 
+float DistPointLine(const Point3D& q, const Point3D& p, const Vector3D& v);
+
+float DistLineLine(const Point3D& p1, const Vector3D& v1,
+                   const Point3D& p2, const Vector3D& v2);
+
 #endif // __GAME_UTILS_MATH_H__
