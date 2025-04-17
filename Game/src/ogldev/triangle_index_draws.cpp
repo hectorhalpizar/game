@@ -2,7 +2,7 @@
 #include <math.h>
 #include <cstddef>
 
-#include "game_math.h"
+#include "game_math.hpp"
 
 #include "triangle_index_draws.hpp"
 #include "triangle_index_draws_shaders.h"

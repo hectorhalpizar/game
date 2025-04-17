@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "game_math.h"
+#include "game_math.hpp"
 
 #include "triangle_translation.hpp"
 #include "triangle_translation_shaders.h"

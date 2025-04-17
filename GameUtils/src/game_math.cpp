@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "game_math.h"
+#include "game_math.hpp"
 
 void MultiplyMatrixAsArray(float *A, float *B, float *Result, int m, int n, int p)
 {
