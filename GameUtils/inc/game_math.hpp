@@ -2,8 +2,10 @@
 #define __GAME_UTILS_MATH_H__
 
 #include "vector3d.hpp"
+#include "vector4d.hpp"
 #include "point3d.hpp"
 #include "matrix3d.hpp"
+#include "matrix4d.hpp"
 
 void TransposeArray(float *matrix, int *rows, int *cols);
 

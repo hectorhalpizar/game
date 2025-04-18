@@ -3,7 +3,7 @@
 #include <cmath>
 
 #include "TestTools/AssertExtention.hpp"
-#include "matrix4d.hpp"
+#include "game_math.hpp"
 
 using namespace System;
 using namespace System::Text;
