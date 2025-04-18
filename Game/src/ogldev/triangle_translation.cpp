@@ -9,6 +9,8 @@
 #include "esUtil.h"
 #include "transformation.h"
 
+using namespace gameutils::math;
+
 // Definition of the class
 class TriangleTranslation {
 

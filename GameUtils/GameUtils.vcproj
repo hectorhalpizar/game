@@ -161,6 +161,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\line.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\matrix3d.cpp"
 				>
 			</File>
@@ -169,7 +173,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\plane.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\point3d.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\quaternion.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\transform4d.cpp"
 				>
 			</File>
 			<File
@@ -195,6 +211,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\inc\line.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\inc\matrix3d.hpp"
 				>
 			</File>
@@ -203,7 +223,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\inc\plane.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\inc\point3d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\inc\quaternion.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\inc\transform4d.hpp"
 				>
 			</File>
 			<File

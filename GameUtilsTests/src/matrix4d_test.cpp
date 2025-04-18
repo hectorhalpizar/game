@@ -10,6 +10,7 @@ using namespace System::Text;
 using namespace System::Collections::Generic;
 using namespace	Microsoft::VisualStudio::TestTools::UnitTesting;
 using namespace GameUtills::UnitTesting;
+using namespace gameutils::math;
 
 namespace GameUtilsTests
 {
@@ -18,7 +19,6 @@ namespace GameUtilsTests
 	{
 	private:
 		TestContext^ testContextInstance;
-		#define ASSERT_ERROR_MESSAGE "Result is {0} and expected is {1}"
 
 	public: 
 		/// <summary>

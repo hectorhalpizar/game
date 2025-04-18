@@ -8,6 +8,8 @@
 #include "../config.h"
 #include "esUtil.h"
 
+using namespace gameutils::math;
+
 // Definition of the class
 class TriangleRotation {
 

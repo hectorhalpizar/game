@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+using namespace gameutils::math;
+
 Vector3D::Vector3D(){
 	// Default values
 	init(0.f, 0.f, 0.f);

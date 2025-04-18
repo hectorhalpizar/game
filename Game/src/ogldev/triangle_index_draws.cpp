@@ -11,6 +11,8 @@
 
 #include "Vertex.h"
 
+using namespace gameutils::math;
+
 
 // Definition of the class
 class TriangleIndexDraw {
