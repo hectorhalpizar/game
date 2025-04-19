@@ -63,12 +63,58 @@ namespace GameUtilsTests
 		void test_Plane_Default_constructor()
 		{
 			// Arrange & Act
-			const Point3D testInstance;
+			const Plane testInstance;
 			
 			// Assert
 			Assert::AreEqual(0.f, testInstance.x);
 			Assert::AreEqual(0.f, testInstance.y);
 			Assert::AreEqual(0.f, testInstance.z);
+			Assert::AreEqual(0.f, testInstance.w);
+		};
+
+		[TestMethod]
+		void test_Plane_Second_constructor()
+		{
+			// Arrange & Act
+			const Plane testInstance(1.f, 2.f, 3.f, 4.f);
+			
+			// Assert
+			Assert::AreEqual(1.f, testInstance.x);
+			Assert::AreEqual(2.f, testInstance.y);
+			Assert::AreEqual(3.f, testInstance.z);
+			Assert::AreEqual(4.f, testInstance.w);
+		};
+
+		[TestMethod]
+		void test_Plane_Third_constructor()
+		{
+			// Arrange & Act
+			const Vector3D aVector3D(1.f, 2.f, 3.f);
+			const float w = 4.f;
+			const Plane testInstance(aVector3D, w);
+			
+			// Assert
+			Assert::AreEqual(1.f, testInstance.x);
+			Assert::AreEqual(2.f, testInstance.y);
+			Assert::AreEqual(3.f, testInstance.z);
+			Assert::AreEqual(4.f, testInstance.w);
+		};
+
+		[TestMethod]
+		void test_Plane_GetNormal()
+		{
+			// Arrange
+			const Vector3D aVector3D(1.f, 2.f, 3.f);
+			const float w = 4.f;
+			const Plane testInstance(aVector3D, w);
+
+			// Act
+			Vector3D result = testInstance.GetNormal();
+			
+			// Assert
+			Assert::AreEqual(1.f, result.x);
+			Assert::AreEqual(2.f, result.y);
+			Assert::AreEqual(3.f, result.z);
 		};
 	};	
 }

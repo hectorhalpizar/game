@@ -63,12 +63,50 @@ namespace GameUtilsTests
 		void test_Line_Default_constructor()
 		{
 			// Arrange & Act
-			const Point3D testInstance;
+			const Line testInstance;
 			
 			// Assert
-			Assert::AreEqual(0.f, testInstance.x);
-			Assert::AreEqual(0.f, testInstance.y);
-			Assert::AreEqual(0.f, testInstance.z);
-		};
+			Assert::AreEqual(0.f, testInstance.direction.x);
+			Assert::AreEqual(0.f, testInstance.direction.y);
+			Assert::AreEqual(0.f, testInstance.direction.z);
+
+			Assert::AreEqual(0.f, testInstance.moment.x);
+			Assert::AreEqual(0.f, testInstance.moment.y);
+			Assert::AreEqual(0.f, testInstance.moment.z);
+		}
+
+		[TestMethod]
+		void test_Line_secondary_constructor()
+		{
+			// Arrange & Act
+			const Line testInstance(1.f, 2.f, 3.f, 4.f, 5.f, 6.f);
+			
+			// Assert
+			Assert::AreEqual(1.f, testInstance.direction.x);
+			Assert::AreEqual(2.f, testInstance.direction.y);
+			Assert::AreEqual(3.f, testInstance.direction.z);
+
+			Assert::AreEqual(4.f, testInstance.moment.x);
+			Assert::AreEqual(5.f, testInstance.moment.y);
+			Assert::AreEqual(6.f, testInstance.moment.z);
+		}
+
+		[TestMethod]
+		void test_Line_direction_and_moment_constructor()
+		{
+			// Arrange & Act
+			const Vector3D direction(1.f, 2.f, 3.f);
+			const Vector3D moment(4.f, 5.f, 6.f);
+			const Line testInstance(direction, moment);
+			
+			// Assert
+			Assert::AreEqual(1.f, testInstance.direction.x);
+			Assert::AreEqual(2.f, testInstance.direction.y);
+			Assert::AreEqual(3.f, testInstance.direction.z);
+
+			Assert::AreEqual(4.f, testInstance.moment.x);
+			Assert::AreEqual(5.f, testInstance.moment.y);
+			Assert::AreEqual(6.f, testInstance.moment.z);
+		}
 	};	
 }

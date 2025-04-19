@@ -4,6 +4,13 @@ using namespace gameutils::math;
 
 Transform4D::Transform4D()
 {
+	n[0][0] = 0.F; n[0][1] = 0.F; n[0][2] = 0.F;
+	n[1][0] = 0.F; n[1][1] = 0.F; n[1][2] = 0.F;
+	n[2][0] = 0.F; n[2][1] = 0.F; n[2][2] = 0.F;
+	n[3][0] = 0.F; n[3][1] = 0.F; n[3][2] = 0.F;
+
+	n[0][3] = n[1][3] = n[2][3] = 0.0F;
+	n[3][3] = 1.0F;
 }
 
 Transform4D::Transform4D(float n00, float n01, float n02, float n03,

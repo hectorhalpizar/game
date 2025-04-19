@@ -63,12 +63,184 @@ namespace GameUtilsTests
 		void test_Transform4D_Default_constructor()
 		{
 			// Arrange & Act
-			const Point3D testInstance;
+			const Transform4D testInstance;
 			
 			// Assert
-			Assert::AreEqual(0.f, testInstance.x);
-			Assert::AreEqual(0.f, testInstance.y);
-			Assert::AreEqual(0.f, testInstance.z);
-		};
+			Assert::AreEqual(0.f, testInstance(0,0));
+			Assert::AreEqual(0.f, testInstance(0,1));
+			Assert::AreEqual(0.f, testInstance(0,2));
+			Assert::AreEqual(0.f, testInstance(0,3));
+			Assert::AreEqual(0.f, testInstance(1,0));
+			Assert::AreEqual(0.f, testInstance(1,1));
+			Assert::AreEqual(0.f, testInstance(1,2));
+			Assert::AreEqual(0.f, testInstance(1,3));
+			Assert::AreEqual(0.f, testInstance(2,0));
+			Assert::AreEqual(0.f, testInstance(2,1));
+			Assert::AreEqual(0.f, testInstance(2,2));
+			Assert::AreEqual(0.f, testInstance(2,3));
+			Assert::AreEqual(0.f, testInstance(3,0));
+			Assert::AreEqual(0.f, testInstance(3,1));
+			Assert::AreEqual(0.f, testInstance(3,2));
+			Assert::AreEqual(1.f, testInstance(3,3));
+		}
+
+		[TestMethod]
+		void test_Transform4D_Second_constructor()
+		{
+			// Arrange & Act
+			const Transform4D testInstance(1.f,  2.f,  3.f,  4.f,
+										   5.f,  6.f,  7.f,  8.f,
+										   9.f, 10.f, 11.f, 12.f);
+			
+			// Assert
+			Assert::AreEqual( 1.f, testInstance(0,0));
+			Assert::AreEqual( 2.f, testInstance(0,1));
+			Assert::AreEqual( 3.f, testInstance(0,2));
+			Assert::AreEqual( 4.f, testInstance(0,3));
+			Assert::AreEqual( 5.f, testInstance(1,0));
+			Assert::AreEqual( 6.f, testInstance(1,1));
+			Assert::AreEqual( 7.f, testInstance(1,2));
+			Assert::AreEqual( 8.f, testInstance(1,3));
+			Assert::AreEqual( 9.f, testInstance(2,0));
+			Assert::AreEqual(10.f, testInstance(2,1));
+			Assert::AreEqual(11.f, testInstance(2,2));
+			Assert::AreEqual(12.f, testInstance(2,3));
+			Assert::AreEqual( 0.f, testInstance(3,0));
+			Assert::AreEqual( 0.f, testInstance(3,1));
+			Assert::AreEqual( 0.f, testInstance(3,2));
+			Assert::AreEqual( 1.f, testInstance(3,3));
+		}
+
+		[TestMethod]
+		void test_Transform4D_Third_constructor()
+		{
+			// Arrange & Act
+			const Vector3D firstVector3D(1.f, 2.f, 3.f);
+			const Vector3D secondVector3D(4.f, 5.f, 6.f);
+			const Vector3D thirdVector3D(7.f, 8.f, 9.f);
+			const Point3D point3D(10.f, 11.f, 12.f);
+			
+			const Transform4D testInstance(firstVector3D,
+										   secondVector3D,
+										   thirdVector3D,
+										   point3D);
+			
+			// Assert
+			Assert::AreEqual( 1.f, testInstance(0,0));
+			Assert::AreEqual( 2.f, testInstance(1,0));
+			Assert::AreEqual( 3.f, testInstance(2,0));
+			Assert::AreEqual( 0.f, testInstance(3,0));
+			Assert::AreEqual( 4.f, testInstance(0,1));
+			Assert::AreEqual( 5.f, testInstance(1,1));
+			Assert::AreEqual( 6.f, testInstance(2,1));
+			Assert::AreEqual( 0.f, testInstance(3,1));
+			Assert::AreEqual( 7.f, testInstance(0,2));
+			Assert::AreEqual( 8.f, testInstance(1,2));
+			Assert::AreEqual( 9.f, testInstance(2,2));
+			Assert::AreEqual( 0.f, testInstance(3,2));
+			Assert::AreEqual(10.f, testInstance(0,3));
+			Assert::AreEqual(11.f, testInstance(1,3));
+			Assert::AreEqual(12.f, testInstance(2,3));
+			Assert::AreEqual( 1.f, testInstance(3,3));
+		}
+
+		[TestMethod]
+		void test_Transform4D_Const_Bracket_Operator()
+		{
+			// Arrange & Act
+			const Vector3D firstVector3D(1.f, 2.f, 3.f);
+			const Vector3D secondVector3D(4.f, 5.f, 6.f);
+			const Vector3D thirdVector3D(7.f, 8.f, 9.f);
+			const Point3D point3D(10.f, 11.f, 12.f);
+			
+			const Transform4D testInstance(firstVector3D,
+										   secondVector3D,
+										   thirdVector3D,
+										   point3D);
+			
+			// Assert
+			Vector3D result = testInstance[0];
+			Assert::AreEqual( 1.f, result.x);
+			Assert::AreEqual( 2.f, result.y);
+			Assert::AreEqual( 3.f, result.z);
+
+
+			result = testInstance[1];
+			Assert::AreEqual( 4.f, result.x);
+			Assert::AreEqual( 5.f, result.y);
+			Assert::AreEqual( 6.f, result.z);
+
+			result = testInstance[2];
+			Assert::AreEqual( 7.f, result.x);
+			Assert::AreEqual( 8.f, result.y);
+			Assert::AreEqual( 9.f, result.z);
+
+			result = testInstance[3];
+			Assert::AreEqual(10.f, result.x);
+			Assert::AreEqual(11.f, result.y);
+			Assert::AreEqual(12.f, result.z);
+		}
+
+		[TestMethod]
+		void test_Transform4D_Bracket_Operator()
+		{
+			// Arrange & Act
+			const Vector3D firstVector3D(1.f, 2.f, 3.f);
+			const Vector3D secondVector3D(4.f, 5.f, 6.f);
+			const Vector3D thirdVector3D(7.f, 8.f, 9.f);
+			const Point3D point3D(10.f, 11.f, 12.f);
+			
+			Transform4D testInstance(firstVector3D,
+									 secondVector3D,
+									 thirdVector3D,
+									 point3D);
+			
+			// Assert
+			Vector3D result = testInstance[0];
+			Assert::AreEqual( 1.f, result.x);
+			Assert::AreEqual( 2.f, result.y);
+			Assert::AreEqual( 3.f, result.z);
+
+
+			result = testInstance[1];
+			Assert::AreEqual( 4.f, result.x);
+			Assert::AreEqual( 5.f, result.y);
+			Assert::AreEqual( 6.f, result.z);
+
+			result = testInstance[2];
+			Assert::AreEqual( 7.f, result.x);
+			Assert::AreEqual( 8.f, result.y);
+			Assert::AreEqual( 9.f, result.z);
+
+			result = testInstance[3];
+			Assert::AreEqual(10.f, result.x);
+			Assert::AreEqual(11.f, result.y);
+			Assert::AreEqual(12.f, result.z);
+		}
+
+		[TestMethod]
+		void test_Transform4D_Set_and_Get_Translation()
+		{
+			// Arrange & Act
+			const Vector3D firstVector3D(1.f, 2.f, 3.f);
+			const Vector3D secondVector3D(4.f, 5.f, 6.f);
+			const Vector3D thirdVector3D(7.f, 8.f, 9.f);
+			const Point3D point3D(10.f, 11.f, 12.f);
+			
+			Transform4D testInstance(firstVector3D,
+									 secondVector3D,
+									 thirdVector3D,
+									 point3D);
+
+			
+			const Point3D newTranslation(22.f, 23.f, 24.f);
+			testInstance.SetTranslation(newTranslation);
+			
+			// Assert
+			Point3D result = testInstance.GetTranslation();
+			Assert::AreEqual(22.f, result.x);
+			Assert::AreEqual(23.f, result.y);
+			Assert::AreEqual(24.f, result.z);
+		}
 	};	
 }

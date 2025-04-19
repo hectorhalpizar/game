@@ -2,7 +2,7 @@
 
 using namespace gameutils::math;
 
-Line::Line()
+Line::Line() : direction(0.f, 0.f, 0.f), moment(0.f, 0.f, 0.f)
 {
 }
 
