@@ -22,12 +22,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Game1.vsmdi = Game1.vsmdi
 		Game3.vsmdi = Game3.vsmdi
 		Game4.vsmdi = Game4.vsmdi
+		Game5.vsmdi = Game5.vsmdi
 		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = Game4.vsmdi
+		CategoryFile = Game5.vsmdi
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
