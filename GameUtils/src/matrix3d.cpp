@@ -1,4 +1,4 @@
-#include "matrix3d.hpp"
+#include "../internal/matrix3d.hpp"
 #include "game_math.hpp"
 
 using namespace gameutils::math;

@@ -1,4 +1,4 @@
-#include "vector4d.hpp"
+#include "../internal/vector4d.hpp"
 
 Vector4D::Vector4D() {
 	init(0.f, 0.f, 0.f, 0.f);

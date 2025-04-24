@@ -1,4 +1,4 @@
-#include "plane.hpp"
+#include "../internal/plane.hpp"
 
 using namespace gameutils::math;
 

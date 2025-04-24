@@ -1,15 +1,7 @@
 #ifndef __GAME_UTILS_MATH_H__
 #define __GAME_UTILS_MATH_H__
 
-#include "vector3d.hpp"
-#include "vector4d.hpp"
-#include "point3d.hpp"
-#include "matrix3d.hpp"
-#include "matrix4d.hpp"
-#include "transform4d.hpp"
-#include "quaternion.hpp"
-#include "plane.hpp"
-#include "line.hpp"
+#include "../internal/private_headers.hpp"
 
 
 namespace gameutils {

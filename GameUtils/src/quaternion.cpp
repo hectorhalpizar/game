@@ -1,4 +1,4 @@
-#include "quaternion.hpp"
+#include "../internal/quaternion.hpp"
 
 using namespace gameutils::math;
 

@@ -1,5 +1,5 @@
-#include "point3d.hpp"
-#include "vector3d.hpp"
+#include "../internal/point3d.hpp"
+#include "../internal/vector3d.hpp"
 #include "game_math.hpp"
 
 using namespace gameutils::math;

@@ -202,43 +202,51 @@
 				>
 			</File>
 			<File
-				RelativePath=".\inc\line.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\inc\matrix3d.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\inc\matrix4d.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\inc\plane.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\inc\point3d.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\inc\quaternion.hpp"
-				>
-			</File>
-			<File
-				RelativePath=".\inc\transform4d.hpp"
-				>
-			</File>
-			<File
 				RelativePath=".\inc\transformation.h"
 				>
 			</File>
+		</Filter>
+		<Filter
+			Name="internal"
+			>
 			<File
-				RelativePath=".\inc\vector3d.hpp"
+				RelativePath=".\internal\line.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\inc\vector4d.hpp"
+				RelativePath=".\internal\matrix3d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\internal\matrix4d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\internal\plane.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\internal\point3d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\internal\private_headers.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\internal\quaternion.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\internal\transform4d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\internal\vector3d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\internal\vector4d.hpp"
 				>
 			</File>
 		</Filter>

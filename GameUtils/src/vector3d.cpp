@@ -1,4 +1,4 @@
-#include "vector3d.hpp"
+#include "../internal/vector3d.hpp"
 
 #include <stdio.h>
 

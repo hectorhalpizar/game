@@ -1,4 +1,4 @@
-#include "line.hpp"
+#include "../internal/line.hpp"
 
 using namespace gameutils::math;
 

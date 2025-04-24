@@ -1,6 +1,6 @@
-#include "matrix4d.hpp"
-#include "vector4d.hpp"
-#include "vector3d.hpp"
+#include "../internal/matrix4d.hpp"
+#include "../internal/vector4d.hpp"
+#include "../internal/vector3d.hpp"
 #include "game_math.hpp"
 
 using namespace gameutils::math;
