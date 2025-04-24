@@ -395,6 +395,14 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="gameUtils"
+				>
+				<File
+					RelativePath=".\src\gameUtils\readme.txt"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\Game.ico"
