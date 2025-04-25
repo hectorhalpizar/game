@@ -203,15 +203,15 @@
 				Name="ogldev"
 				>
 				<File
-					RelativePath=".\src\ogldev\perspective_camera.cpp"
+					RelativePath=".\src\ogldev\camera_space.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\src\ogldev\perspective_camera.hpp"
+					RelativePath=".\src\ogldev\camera_space.hpp"
 					>
 				</File>
 				<File
-					RelativePath=".\src\ogldev\perspective_camera_shaders.h"
+					RelativePath=".\src\ogldev\camera_space_shaders.h"
 					>
 				</File>
 				<File

@@ -1,7 +1,7 @@
-#ifndef __GAME_OGLDEV_PESPSPECTIVE_CAMERA_SHADERS_HPP__
-#define __GAME_OGLDEV_PESPSPECTIVE_CAMERA_SHADERS_HPP__
+#ifndef __GAME_OGLDEV_CAMERA_SPACE_SHADERS_HPP__
+#define __GAME_OGLDEV_CAMERA_SPACE_SHADERS_HPP__
 
-char * getPerspectiveCameraVertexShader()
+char * getCameraSpaceVertexShader()
 {
 	return
 		"#version 100												\n"
@@ -21,7 +21,7 @@ char * getPerspectiveCameraVertexShader()
 		"}															\n";
 }
 
-char * getPerspectiveCameraFragmentShader()
+char * getCameraSpaceFragmentShader()
 {
 	return
 		"#version 100					\n"
@@ -33,4 +33,4 @@ char * getPerspectiveCameraFragmentShader()
 		"}								\n";
 }
 
-#endif // __GAME_OGLDEV_PESPSPECTIVE_CAMERA_SHADERS_HPP__
+#endif // __GAME_OGLDEV_CAMERA_SPACE_SHADERS_HPP__

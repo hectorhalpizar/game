@@ -5,8 +5,8 @@
 #include "transformation.h"
 #include "game_math.hpp"
 
-#include "perspective_camera.hpp"
-#include "perspective_camera_shaders.h"
+#include "camera_space.hpp"
+#include "camera_space_shaders.h"
 #include "../config.h"
 #include "esUtil.h"
 
@@ -22,13 +22,12 @@ using namespace gameutils::math;
 #define ToDegree(x) ((x) * 180.0f / M_PI)
 
 // Definition of the class
-class PerspectiveCamera {
+class CameraSpace {
 
 private:
 	typedef struct
 	{
-		// Pass the TriangleTranslation Demo object
-		PerspectiveCamera * Demo;
+		CameraSpace * Demo;
 
 	} UserData;
 
@@ -47,7 +46,7 @@ public:
 	static GLuint IBO;
 
 public:
-	PerspectiveCamera()
+	CameraSpace()
 	{
 		// Default
 	}
@@ -61,8 +60,8 @@ private:
 		CreateIndexBuffer();
 
 		// Load the vertex/fragment shaders
-		char *vertexShader = getPerspectiveCameraVertexShader();
-		char *fragmentShader = getPerspectiveCameraFragmentShader();
+		char *vertexShader = getCameraSpaceVertexShader();
+		char *fragmentShader = getCameraSpaceFragmentShader();
 
 		userData->Demo->programObject = esLoadProgram ( vertexShader, fragmentShader );
 
@@ -267,7 +266,7 @@ public:
 		esContext.userData = &userData;
 
 		esCreateWindow2(&esContext, 
-						"OGLDEV Perspecive Camera", 
+						"OGLDEV Camera Space", 
 						WINDOW_ICON, 
 						WINDOW_WIDTH, 
 						WINDOW_HEIGHT, 
@@ -276,7 +275,7 @@ public:
 		if(!this->Init(&esContext))
 			return GAME_ERROR_INIT_FAILED;
 
-		esRegisterDrawFunc(&esContext, PerspectiveCamera::Draw);
+		esRegisterDrawFunc(&esContext, CameraSpace::Draw);
 
 		esMainLoop(&esContext);
 
@@ -287,11 +286,11 @@ public:
 };
 
 
-GLuint PerspectiveCamera::VBO = 0;
-GLuint PerspectiveCamera::IBO = 0;
+GLuint CameraSpace::VBO = 0;
+GLuint CameraSpace::IBO = 0;
 
-int RunOglDevGamePerspectiveCamera(int argc, char *argv[])
+int RunOglDevGameCameraSpace(int argc, char *argv[])
 {
-	PerspectiveCamera perspectiveCamera;
-	return perspectiveCamera.Start(argc, argv);
+	CameraSpace cameraSpace;
+	return cameraSpace.Start(argc, argv);
 }
