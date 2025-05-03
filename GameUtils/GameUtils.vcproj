@@ -191,6 +191,10 @@
 				RelativePath=".\src\vector4d.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\src\world_transform.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="inc"
@@ -203,6 +207,10 @@
 			</File>
 			<File
 				RelativePath=".\inc\transformation.h"
+				>
+			</File>
+			<File
+				RelativePath=".\inc\world_transform.hpp"
 				>
 			</File>
 		</Filter>

@@ -7,10 +7,19 @@
 namespace gameutils {
 	namespace math {
 
+		const float m_pi = 3.1415926535897932384626433832795F;
+
 		void TransposeArray(float *matrix, int *rows, int *cols);
 
 		void MultiplyMatrixAsArray(float *A, float *B, float *Result, int m, int n, int p);
 
+		inline float ToRadian(float x) {
+			return ((x) * m_pi / 180.0f);
+		}
+
+		inline float ToDegree(float x) {
+			return ((x) * 180.0f / m_pi);
+		}
 
 		inline Vector3D operator *(const Vector3D& v, float s)
 		{

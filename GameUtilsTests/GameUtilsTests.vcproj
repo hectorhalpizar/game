@@ -258,6 +258,10 @@
 				RelativePath=".\src\vector4d_test.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\src\world_transform_test.cpp"
+				>
+			</File>
 			<Filter
 				Name="TestTools"
 				>
