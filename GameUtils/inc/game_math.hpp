@@ -127,6 +127,21 @@ namespace gameutils {
 
 		Matrix4D Inverse(const Matrix4D& M);
 
+		/**
+		 * Translation as Row-Major
+		 *
+		 * Result Transform4D as Matrix4D
+		 * [1, 0, 0, x]
+		 * [0, 1, 0, y]
+		 * [0, 0, 1, y]
+		 * [0, 0, 0, 1]
+		 */
+		inline Transform4D MakeMove(float x, float y, float z) {
+			return Transform4D (1.F, 0.F, 0.F, x,
+								0.F, 1.F, 0.F, y,
+								0.F, 0.F, 1.F, z);
+		}
+
 		Transform4D Inverse(const Transform4D& H);
 
 		Transform4D operator *(const Transform4D& A, const Transform4D& B);

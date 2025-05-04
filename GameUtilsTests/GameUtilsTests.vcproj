@@ -195,6 +195,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\camera_test.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\game_math_test.cpp"
 				>
 			</File>
@@ -267,6 +271,14 @@
 				>
 				<File
 					RelativePath=".\src\TestTools\AssertExtention.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Mocks"
+				>
+				<File
+					RelativePath=".\src\Mocks\mock_camera.hpp"
 					>
 				</File>
 			</Filter>

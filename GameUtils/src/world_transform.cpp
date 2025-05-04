@@ -48,9 +48,7 @@ Matrix4D WorldTransform::GetMatrix()
 	Transform4D Rotation(_Rotation3D[0], _Rotation3D[1], _Rotation3D[2], _ZeroPoint3D);
 
 	// This is the translation column-major order
-	Transform4D Translation(1.f, 0.f, 0.f, m_pos.x,
-							0.f, 1.f, 0.f, m_pos.y,
-							0.f, 0.f, 1.f, m_pos.z);
+	Transform4D Translation = MakeMove(m_pos.x, m_pos.y, m_pos.z);
     Transform4D Result = Translation * Rotation * Scale;
 
     return Result;
