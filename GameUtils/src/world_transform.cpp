@@ -2,6 +2,7 @@
 #include "transformation.h"
 #include <game_math.hpp>
 
+using namespace gameutils;
 using namespace gameutils::math;
 
 void WorldTransform::SetScale(float scale)

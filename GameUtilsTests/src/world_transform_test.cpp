@@ -11,6 +11,7 @@ using namespace System::Text;
 using namespace System::Collections::Generic;
 using namespace	Microsoft::VisualStudio::TestTools::UnitTesting;
 using namespace GameUtills::UnitTesting;
+using namespace gameutils;
 using namespace gameutils::math;
 
 namespace GameUtilsTests
