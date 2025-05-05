@@ -25,7 +25,7 @@ Matrix4D::Matrix4D(float n00, float n01, float n02, float n03,
 }
 
 ///
-// This matrix is set a Column-Major
+// This matrix is set a Row-Major
 // 
 // Result of the a Vector Matrix with input
 // const Matrix3D testInstance = Matrix3D(Vector4D( 1.f,  2.f,  3.f,  4.f),
@@ -67,6 +67,22 @@ const Vector4D& Matrix4D::operator [](int j) const
 {
 	return (*reinterpret_cast<const Vector4D *>(n[j]));
 }
+
+Matrix4D Matrix4D::operator *(const Matrix4D& Right) const
+{
+	Matrix4D Ret;
+
+	for (unsigned int i = 0 ; i < 4 ; i++) {
+		for (unsigned int j = 0 ; j < 4 ; j++) {
+			Ret.n[i][j] = n[i][0] * Right.n[0][j] +
+						  n[i][1] * Right.n[1][j] +
+						  n[i][2] * Right.n[2][j] +
+						  n[i][3] * Right.n[3][j];
+		}
+	}
+
+	return Ret;
+};
 
 void Matrix4D::init(float n00, float n01, float n02, float n03,
 		            float n10, float n11, float n12, float n13,

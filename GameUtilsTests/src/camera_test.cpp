@@ -127,7 +127,7 @@ namespace GameUtilsTests
 
 			AssertExtension::AreEqual( 0.f, result(0,3));
 			AssertExtension::AreEqual( 0.f, result(1,3));
-			AssertExtension::AreEqual(10.f, result(2,3));
+			AssertExtension::AreEqual(-10.f, result(2,3));
 			AssertExtension::AreEqual( 1.f, result(3,3));
 
 		};
@@ -237,7 +237,7 @@ namespace GameUtilsTests
 			MockCamera testInstance;
 
 			// Act
-			testInstance.Maniputale(Camera::PAGE_UP);
+			testInstance.Maniputale(Camera::MOVE_FORWARD);
 
 			// Assert
 			Vector3D resultPosition = testInstance.GetPosition();
@@ -253,7 +253,7 @@ namespace GameUtilsTests
 			MockCamera testInstance;
 
 			// Act
-			testInstance.Maniputale(Camera::PAGE_DOWN);
+			testInstance.Maniputale(Camera::MOVE_BACKWARD);
 
 			// Assert
 			Vector3D resultPosition = testInstance.GetPosition();

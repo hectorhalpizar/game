@@ -451,3 +451,4 @@ Line gameutils::math::Transform(const Line& line, const Transform4D& H)
 	Vector3D m = adj * line.moment + Cross(t, v);
 	return (Line(v, m));
 }
+

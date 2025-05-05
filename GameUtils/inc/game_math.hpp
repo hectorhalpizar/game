@@ -128,6 +128,22 @@ namespace gameutils {
 		Matrix4D Inverse(const Matrix4D& M);
 
 		/**
+		 *
+		 */
+		inline Matrix4D Transponse(Matrix4D& m)
+		{
+			Matrix4D result;
+			for (int i = 0; i < 4; ++i)
+			{
+				for (int j = 0; j < 4; ++j)
+				{
+					result[i][j] = m[j][i];  // Swap rows and columns
+				}
+			}
+			return result;
+		}
+
+		/**
 		 * Translation as Row-Major
 		 *
 		 * Result Transform4D as Matrix4D

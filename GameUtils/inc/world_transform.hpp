@@ -9,7 +9,9 @@ namespace gameutils {
 
 	class WorldTransform {
 		public:
-			WorldTransform() { }
+			WorldTransform() {
+				SetScale(1.f);
+			}
 
 			void SetScale(float scale);
 			void SetRotation(float x, float y, float z);

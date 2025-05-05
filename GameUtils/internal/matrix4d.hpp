@@ -29,6 +29,10 @@ namespace gameutils {
 				Vector4D& operator [](int j);
 
 				const Vector4D& operator [](int j) const;
+
+			    Matrix4D operator *(const Matrix4D& Right) const;
+
+				float* Foo();
 			
 			private:
 				void init(float n00, float n01, float n02, float n03,

@@ -17,9 +17,10 @@
 #include "ogldev/triangle_index_draws.hpp"
 #include "ogldev/perspective_projection.hpp"
 #include "ogldev/camera_space.hpp"
+#include "ogldev/camera_control_part_1.hpp"
 #include "config.h"
 
-#define AMOUNT_OF_DEMOS 18
+#define AMOUNT_OF_DEMOS 19
 
 void printHelp(char * programToRun)
 {
@@ -41,7 +42,8 @@ void printHelp(char * programToRun)
 		RUN_GAME_OGLDEV_TRIANGLE_INTERPOLATION_COLOR,
 		RUN_GAME_OGLDEV_TRIANGLE_INDEX_DRAWS,
 		RUN_GAME_OGLDEV_PESPSPECTIVE_PROJECTION,
-		RUN_GAME_OGLDEV_CAMERA_SPACE
+		RUN_GAME_OGLDEV_CAMERA_SPACE,
+		RUN_GAME_OGLDEV_CAMERA_CONTROL_PART_1
 	};
 
 	int demoIndex = 0;
@@ -138,6 +140,10 @@ int main(int argc, char * argv[]) {
 	else if (strcmp(programToRun, RUN_GAME_OGLDEV_CAMERA_SPACE) == 0)
 	{
 		runGameDemo = RunOglDevGameCameraSpace;
+	}
+	else if (strcmp(programToRun, RUN_GAME_OGLDEV_CAMERA_CONTROL_PART_1) == 0)
+	{
+		runGameDemo = RunOglDevGameCameraControlPart1;
 	}
 
 	// Outcome of the selected runGameDemo value

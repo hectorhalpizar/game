@@ -1,5 +1,3 @@
-#define TESTING 1
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -11,9 +9,8 @@
 #include "world_transform.hpp"
 #include "camera.hpp"
 
-#include "camera_space.hpp"
-#include "camera_space_shaders.h"
-
+#include "camera_control_part_1.hpp"
+#include "camera_control_part_1_shaders.h"
 #include "../config.h"
 #include "esUtil.h"
 
@@ -22,22 +19,21 @@
 using namespace gameutils;
 using namespace gameutils::math;
 
-#define WINDOW_WIDTH  1920
-#define WINDOW_HEIGHT 1080
+#define WINDOW_WIDTH  1920 >> 1
+#define WINDOW_HEIGHT 1080 >> 1
 
 #define M_PI (3.14)
 #define ToRadian(x) ((x) * M_PI / 180.0f)
 #define ToDegree(x) ((x) * 180.0f / M_PI)
 
 
-
 // Definition of the class
-class CameraSpace {
+class CameraControlPart1 {
 
 private:
 	typedef struct
 	{
-		CameraSpace * Demo;
+		CameraControlPart1 * Demo;
 
 	} UserData;
 
@@ -50,34 +46,34 @@ public:
 	GLint aColor;
 
 	// Uniforms
-	GLint uWvp;
+	GLint gWVPLocation;
+
+	static GLuint VBO;
+	static GLuint IBO;
 
 	WorldTransform CubeWorldTransform;
 	Camera GameCamera;
 	PerspectiveProjection GamePerspectiveProjection;
 
-	static GLuint VBO;
-	static GLuint IBO;
-
 public:
-	CameraSpace()
+	CameraControlPart1()
 	{
 		// Default
-		GamePerspectiveProjection = PerspectiveProjection(45.0F, 1.F, 100.F);
-		GameCamera.SetPosition(0.f, 0.f, -5.25f);
+		GamePerspectiveProjection = PerspectiveProjection(45.0F, 1.F, 10);
+		GameCamera.SetPosition(0.f, 0.f, 0.f);
 	}
 
 private:
 	int Init(ESContext *esContext)
 	{
 		UserData *userData = (UserData *)esContext->userData;
-
+		
 		CreateVertexBuffer();
 		CreateIndexBuffer();
 
 		// Load the vertex/fragment shaders
-		char *vertexShader = getCameraSpaceVertexShader();
-		char *fragmentShader = getCameraSpaceFragmentShader();
+		char *vertexShader = getCameraControlPart1VertexShader();
+		char *fragmentShader = getCameraControlPart1FragmentShader();
 
 		userData->Demo->programObject = esLoadProgram ( vertexShader, fragmentShader );
 
@@ -99,11 +95,11 @@ private:
 
 
 		// Get the uniform offset location
-		userData->Demo->uWvp = glGetUniformLocation( userData->Demo->programObject, "u_wvp" );
+		userData->Demo->gWVPLocation = glGetUniformLocation( userData->Demo->programObject, "u_wvp" );
 
-		if (userData->Demo->uWvp <= -1)
+		if (userData->Demo->gWVPLocation <= -1)
 		{
-			esLogMessage("Error getting userData->u_scale:\n%d\n", userData->Demo->uWvp);
+			esLogMessage("Error getting userData->u_scale:\n%d\n", userData->Demo->gWVPLocation);
 			return FALSE;
 		}
 
@@ -161,9 +157,60 @@ private:
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, Indices, GL_STATIC_DRAW);
 	}
 
+	static void OnKeyPress(ESContext *esContext, unsigned char key, int x, int y)
+	{
+
+		printf("::: Key press: %x\n", key);
+		
+		UserData *userData = (UserData *)esContext->userData;
+		CameraControlPart1 *demo = userData->Demo;
+		Camera& GameCamera = demo->GameCamera;
+
+		switch(key)
+		{
+			case 'w':
+			case 'W':
+				GameCamera.Maniputale(Camera::MOVE_UP);
+				break;
+			case 's':
+			case 'S':
+				GameCamera.Maniputale(Camera::MOVE_DOWN);
+				break;
+			case 'a':
+			case 'A':
+				GameCamera.Maniputale(Camera::MOVE_LEFT);
+				break;
+			case 'd':
+			case 'D':
+				GameCamera.Maniputale(Camera::MOVE_RIGHT);
+				break;
+			case 'y':
+			case 'Y':
+				GameCamera.Maniputale(Camera::MOVE_FORWARD);
+				break;
+			case 'h':
+			case 'H':
+				GameCamera.Maniputale(Camera::MOVE_BACKWARD);
+				break;
+			case '+':
+				GameCamera.Maniputale(Camera::SPEED_UP);
+				break;
+			case '-':
+				GameCamera.Maniputale(Camera::SPEED_DOWN);
+				break;
+		}
+
+
+	}
+
 	static void Draw(ESContext *esContext)
 	{
 		UserData *userData = (UserData *)esContext->userData;
+		CameraControlPart1 *demo = userData->Demo;
+
+		WorldTransform CubeWorldTransform = demo->CubeWorldTransform;
+		Camera GameCamera = demo->GameCamera;
+		PerspectiveProjection GamePerspectiveProjection = demo->GamePerspectiveProjection;
 
 		// Set the viewport
 		glViewport(0, 0, esContext->width, esContext->height);
@@ -171,130 +218,28 @@ private:
 		// Clear the color buffer
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		static float Scale = 0.0f;
-		static float Scale2 = 0.0f;
-		// Scale += 0.01f;
+		#ifdef _WIN64
+			static float YRotationAngle = 0.1f;
+		#else
+			static float YRotationAngle = 0.0f;
+		#endif
 
-		////Scale += 0.02f;
-		////Scale2 += 1.15;
+		// YRotationAngle += 1.15F;
 
-		////GLfloat Rotation[16];
-		////rotateRowMajor(Rotation, 0.f, Scale, 0.f);
-
-		////GLfloat Translation[16];
-		////translateRowMajor(Translation, 0.f, 0.f, 2.f);
-
-		////GLfloat PreviousWorld[16];
-		GLint size = 4;
-		////MultiplyMatrixAsArray(Translation, Rotation, PreviousWorld, size, size, size);
-
-		CameraSpace *demo = userData->Demo;
-		WorldTransform CubeWorldTransform = demo->CubeWorldTransform;
-		Camera GameCamera = demo->GameCamera;
-		PerspectiveProjection GamePerspectiveProjection = demo->GamePerspectiveProjection;
-
-		CubeWorldTransform.Rotate(0.0f, Scale2, 0.0f);
+		CubeWorldTransform.Rotate(0.0f, YRotationAngle, 0.0f);
 		CubeWorldTransform.SetPosition(0.0f, 0.0f, 2.F);
 		
-		Matrix4D dw = CubeWorldTransform.GetMatrix();
-		GLfloat World[16];
-		
-		int k = 0;
-		for (int i = 0; i < 4; i ++)
-			for(int j = 0; j < 4; j ++)
-			{
-				World[k] = dw(i, j);
-				k++;
-			}
-
-		
-
-		// Manipulate this values and you'll have a Camera working
-		//GLfloat CameraPos[] = { 0.f,  0.f,  -5.25f };
-		//GLfloat U[]         = { 1.f,  0.f,  0.f };
-		//GLfloat V[]         = { 0.f,  1.f,  0.f };
-		//GLfloat N[]         = { 0.f,  0.f,  1.f };
-
-		//GLfloat PreviousCamera[] = { U[0], U[1], U[2], -CameraPos[0],
-		//						   V[0], V[1], V[2], -CameraPos[1],
-		//						   N[0], N[1], N[2], -CameraPos[2],
-		//						   0.f,  0.f,	0.f,		  1.f };
-
+		Matrix4D World = CubeWorldTransform.GetMatrix();
 		Matrix4D View = GameCamera.GetMatrix();
-		GLfloat MatrixCamera[16];
+		Matrix4D Projection = MakePerspectiveProjectionTransform(
+								GamePerspectiveProjection, 
+								esContext->width, 
+								esContext->height
+							);
 
-		k = 0;
-		for (int i = 0; i < 4; i ++)
-			for(int j = 0; j < 4; j ++)
-			{
-				MatrixCamera[k] = View(i, j);
-				k++;
-			}
-
-
-		// Projection
-		//float VFOV = 45.0f;
-		//float tanHalfVFOV = tanf(ToRadian(VFOV / 2.0f));
-		//float d = 1.f/tanHalfVFOV;
-
-		//float ar = (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT;
-
-		//float NearZ = 1.0f;
-		//// Modified this values to see if 
-		//float FarZ = 10000.0f;
-		//// float FarZ = 0.5f;
-
-		//float zRange = NearZ - FarZ;
-		//
-		//float A = (-FarZ - NearZ) / zRange;
-		//float B = 2.0f * FarZ * NearZ / zRange;
-
-		//GLfloat PreviousProjection [] = { d/ar, 0.0f, 0.0f, 0.0f, 
-		//						          0.f,  d,	  0.0f, 0.0f, 
-		//						          0.0,	 0.0, A,	B, 
-		//						           0.0,  0.0 ,1.0f, 0.0f };
-
-
-		Matrix4D ProjectionMatrix4D = MakePerspectiveProjectionTransform(
-						GamePerspectiveProjection, 
-						esContext->width, 
-						esContext->height
-					);
-
-		GLfloat Projection[16];
-
-		k = 0;
-		for (int i = 0; i < 4; i ++)
-			for(int j = 0; j < 4; j ++)
-			{
-//				Projection[k] = PreviousProjection[k];
-				Projection[k] = ProjectionMatrix4D(i,j);
-				k++;
-			}
-
-
-		//GLfloat auxWvp[16];
-		//GLfloat previous_wvp[16];
-		//MultiplyMatrixAsArray(MatrixCamera, World, auxWvp, size, size, size);
-		//MultiplyMatrixAsArray(Projection, auxWvp, previous_wvp, size, size, size);
-
-		Matrix4D wvpm4 = dw * View * ProjectionMatrix4D;
-
-		GLfloat wvp[16];
-
-		k = 0;
-		for (int i = 0; i < 4; i ++)
-			for(int j = 0; j < 4; j ++)
-			{
-//				wvp[k] = previous_wvp[k];
-				wvp[k] = wvpm4(i,j);
-				k++;
-			}
-
-		TransposeArray(wvp, &size, &size);
-
-		glUniformMatrix4fv(userData->Demo->uWvp, 1, GL_FALSE, wvp);
-
+		// TODO: Not quite working correctly.
+		Matrix4D WVP = World * View * Projection;
+		glUniformMatrix4fv(userData->Demo->gWVPLocation, 1, GL_FALSE, &WVP[0][0]);
 
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
@@ -351,7 +296,7 @@ public:
 		esContext.userData = &userData;
 
 		esCreateWindow2(&esContext, 
-						"OGLDEV Camera Space", 
+						"OGLDEV Camera Part 1", 
 						WINDOW_ICON, 
 						WINDOW_WIDTH, 
 						WINDOW_HEIGHT, 
@@ -360,7 +305,9 @@ public:
 		if(!this->Init(&esContext))
 			return GAME_ERROR_INIT_FAILED;
 
-		esRegisterDrawFunc(&esContext, CameraSpace::Draw);
+		esRegisterKeyFunc(&esContext,CameraControlPart1::OnKeyPress);
+
+		esRegisterDrawFunc(&esContext, CameraControlPart1::Draw);
 
 		esMainLoop(&esContext);
 
@@ -371,11 +318,11 @@ public:
 };
 
 
-GLuint CameraSpace::VBO = 0;
-GLuint CameraSpace::IBO = 0;
+GLuint CameraControlPart1::VBO = 0;
+GLuint CameraControlPart1::IBO = 0;
 
-int RunOglDevGameCameraSpace(int argc, char *argv[])
+int RunOglDevGameCameraControlPart1(int argc, char *argv[])
 {
-	CameraSpace cameraSpace;
-	return cameraSpace.Start(argc, argv);
+	CameraControlPart1 cameraControlPart1;
+	return cameraControlPart1.Start(argc, argv);
 }

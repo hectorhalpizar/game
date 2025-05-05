@@ -156,6 +156,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\game_utils.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\line.cpp"
 				>
 			</File>
@@ -214,6 +218,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\inc\game_utils.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\inc\transformation.h"
 				>
 			</File>
@@ -235,6 +243,10 @@
 			</File>
 			<File
 				RelativePath=".\internal\matrix4d.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\internal\perspective_projection.hpp"
 				>
 			</File>
 			<File

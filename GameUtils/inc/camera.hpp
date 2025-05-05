@@ -15,8 +15,8 @@ namespace gameutils {
 				MOVE_DOWN,
 				MOVE_LEFT,
 				MOVE_RIGHT,
-				PAGE_UP,
-				PAGE_DOWN,
+				MOVE_FORWARD,
+				MOVE_BACKWARD,
 				SPEED_UP,
 				SPEED_DOWN
 			};
