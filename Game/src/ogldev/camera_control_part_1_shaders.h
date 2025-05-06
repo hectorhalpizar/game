@@ -7,7 +7,6 @@ char * getCameraControlPart1VertexShader()
 		"#version 100												\n"
 		"precision mediump float;									\n"
 		"attribute vec3 a_position;									\n"
-		"attribute vec3 a_color;									\n"
 		"															\n"
 		"varying vec4 v_color;										\n"
 		"															\n"
@@ -17,7 +16,7 @@ char * getCameraControlPart1VertexShader()
 		"{															\n"
 		"															\n"
 		"	gl_Position = u_wvp * vec4(a_position, 1.0);			\n"
-		"	v_color = vec4(a_color, 1.0);							\n"
+		"	v_color = vec4(clamp(a_position, 0.0, 1.0), 1.0);		\n"
 		"}															\n";
 }
 

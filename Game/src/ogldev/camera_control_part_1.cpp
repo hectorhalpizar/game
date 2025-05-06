@@ -14,8 +14,6 @@
 #include "../config.h"
 #include "esUtil.h"
 
-#include "Vertex.h"
-
 using namespace gameutils;
 using namespace gameutils::math;
 
@@ -25,6 +23,23 @@ using namespace gameutils::math;
 #define M_PI (3.14)
 #define ToRadian(x) ((x) * M_PI / 180.0f)
 #define ToDegree(x) ((x) * 180.0f / M_PI)
+
+// Vertex without color
+struct Vertex {
+	GLfloat pos[3];
+
+	Vertex() {}
+
+	Vertex(float x, float y)
+	{
+		Vertex(x, y, 1.f);
+	}
+
+	Vertex(float x, float y, float z)
+	{
+		pos[0] = x; pos[1] = y; pos[2] = z;
+	}
+};
 
 
 // Definition of the class
@@ -76,14 +91,6 @@ private:
 		char *fragmentShader = getCameraControlPart1FragmentShader();
 
 		userData->Demo->programObject = esLoadProgram ( vertexShader, fragmentShader );
-
-		// Get the varying locations
-		userData->Demo->aColor = glGetAttribLocation ( userData->Demo->programObject, "a_color" );
-		if (userData->Demo->aColor <= -1)
-		{
-			esLogMessage("Error getting userData->aColor:\n%d\n", userData->Demo->aColor);
-			return FALSE;
-		}
 
 		// Get the attribute locations
 		userData->Demo->aPosition = glGetAttribLocation ( userData->Demo->programObject, "a_position" );
@@ -159,9 +166,6 @@ private:
 
 	static void OnKeyPress(ESContext *esContext, unsigned char key, int x, int y)
 	{
-
-		printf("::: Key press: %x\n", key);
-		
 		UserData *userData = (UserData *)esContext->userData;
 		CameraControlPart1 *demo = userData->Demo;
 		Camera& GameCamera = demo->GameCamera;
@@ -224,10 +228,10 @@ private:
 			static float YRotationAngle = 0.0f;
 		#endif
 
-		// YRotationAngle += 1.15F;
+		YRotationAngle += 1.15F;
 
 		CubeWorldTransform.Rotate(0.0f, YRotationAngle, 0.0f);
-		CubeWorldTransform.SetPosition(0.0f, 0.0f, 2.F);
+		CubeWorldTransform.SetPosition(0.0f, 0.0f, -2.F);
 		
 		Matrix4D World = CubeWorldTransform.GetMatrix();
 		Matrix4D View = GameCamera.GetMatrix();
@@ -238,7 +242,7 @@ private:
 							);
 
 		// TODO: Not quite working correctly.
-		Matrix4D WVP = World * View * Projection;
+		Matrix4D WVP = Transponse(Projection * View * World);
 		glUniformMatrix4fv(userData->Demo->gWVPLocation, 1, GL_FALSE, &WVP[0][0]);
 
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -247,10 +251,6 @@ private:
 		// Load the vertex data
 		glEnableVertexAttribArray(userData->Demo->aPosition);
 		glVertexAttribPointer(userData->Demo->aPosition, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)offsetof(Vertex, pos));
-
-		// Load color data
-		glEnableVertexAttribArray(userData->Demo->aColor);
-		glVertexAttribPointer(userData->Demo->aColor, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)offsetof(Vertex, color));
 
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
@@ -266,7 +266,6 @@ private:
 		}
 
 		glDisableVertexAttribArray(userData->Demo->aPosition);
-		glDisableVertexAttribArray(userData->Demo->aColor);
 
 		eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface);
 	}

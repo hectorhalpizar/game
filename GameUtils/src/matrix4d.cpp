@@ -50,12 +50,12 @@ Matrix4D::Matrix4D(const Vector4D& a, const Vector4D& b, const Vector4D& c, cons
 
 float& Matrix4D::operator ()(int i, int j)
 {
-	return (n[j][i]);
+	return (n[i][j]);
 }
 
 const float& Matrix4D::operator ()(int i, int j) const
 {
-	return (n[j][i]);
+	return (n[i][j]);
 }
 
 Vector4D& Matrix4D::operator [](int j)
