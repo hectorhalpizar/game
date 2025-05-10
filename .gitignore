@@ -27,10 +27,11 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
+[Bb]in/Game*.exe
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+!lib/mesa3d/**
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
