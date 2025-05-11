@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="./include;../lib/mesa3d/include"
+				AdditionalIncludeDirectories="./include;../Precompiled/mesa3d/include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -65,7 +65,7 @@
 				LinkLibraryDependencies="true"
 				AdditionalDependencies="libEGL.lib libGLESv2.lib"
 				OutputFile="$(OutDir)\esUtil_d.lib"
-				AdditionalLibraryDirectories="../lib/mesa3d/lib/x86"
+				AdditionalLibraryDirectories="../Precompiled/mesa3d/lib/x86"
 			/>
 			<Tool
 				Name="VCALinkTool"

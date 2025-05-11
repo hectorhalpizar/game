@@ -1,9 +1,0 @@
-prefix=${pcfiledir}/../../..
-includedir=${prefix}/include
-libdir=${prefix}/lib/x86
-
-Name: egl
-Description: Mesa EGL Library
-Version: 25.0.5
-Libs: -L${libdir} -lEGL
-Cflags: -I${includedir}

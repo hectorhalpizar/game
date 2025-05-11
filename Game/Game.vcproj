@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\Common\Include;..\GameUtils\inc;..\lib\mesa3D\include"
+				AdditionalIncludeDirectories="..\Common\Include;..\GameUtils\inc;..\Precompiled\mesa3D\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
