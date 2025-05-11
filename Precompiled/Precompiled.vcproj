@@ -4,7 +4,7 @@
 	Version="9.00"
 	Name="Precompiled"
 	ProjectGUID="{2D6A90B4-DD30-4ECC-B8EE-8295F7D36AF1}"
-	RootNamespace="Precompiles"
+	RootNamespace="Precompiled"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -25,7 +25,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="copy .\mesa3d\bin\x86\*.dll ..\bin"
+				CommandLine="if not exist &quot;$(SolutionDir)\bin&quot; mkdir &quot;$(SolutionDir)\bin&quot;&#x0D;&#x0A;xcopy /Y /Q &quot;$(ProjectDir)\mesa3d\bin\x86\*.dll&quot; &quot;$(SolutionDir)\bin\&quot; &gt; nul&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
